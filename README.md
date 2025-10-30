@@ -16,11 +16,12 @@ View your app in AI Studio: https://ai.studio/apps/drive/1SBJlEJMhu9ukqgKZcvTI8f
    ```bash
    npm install
    ```
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key (if needed)
-3. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
+
+> **Note:** The app currently doesn't require any API keys to run locally.
 
 ## Build
 
