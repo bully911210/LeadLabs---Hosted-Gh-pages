@@ -213,7 +213,7 @@ const Authority: FC = () => (
     <Section>
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 items-center">
             <div className="md:order-2">
-                 <img src="https://i.ibb.co/CKCJrnMv/a-professional-studio-portrait-of-a-dist-EKh-DZ10-NR9-EYkq-ITz-VADA-yns-XM0-QRQme3s0-G8uz3l-Cg-1.png" alt="Franz Badenhorst, founder of LeadLabs" className="rounded-2xl shadow-xl w-full h-auto object-cover aspect-square max-w-sm mx-auto" />
+                 <img src="https://i.ibb.co/CKCJrnMv/a-professional-studio-portrait-of-a-dist-EKh-DZ10-NR9-EYkq-ITz-VADA-yns-XM0-QRQme3s0-G8uz3l-Cg-1.png" alt="Franz Badenhorst, founder of LeadLabs by SIG Solutions - Expert in Meta Ads and Sales Automation" className="rounded-2xl shadow-xl w-full h-auto object-cover aspect-square max-w-sm mx-auto" />
             </div>
             <div className="text-center md:text-left md:order-1">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#111827]">Built From Real Campaigns That Consistently Close Sales</h2>

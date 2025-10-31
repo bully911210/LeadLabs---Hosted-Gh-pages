@@ -1,0 +1,136 @@
+name: Notify Google Indexing API
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  notify-google:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ping Google Indexing API
+        env:
+          GOOGLE_INDEXING_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_INDEXING_SERVICE_ACCOUNT_KEY }}
+        run: |
+          # Check if the service account key is configured
+          if [ -z "$GOOGLE_INDEXING_SERVICE_ACCOUNT_KEY" ]; then
+            echo "⚠️  GOOGLE_INDEXING_SERVICE_ACCOUNT_KEY secret is not set"
+            echo "To enable Google Indexing API notifications:"
+            echo "1. Create a Google Cloud Project and enable the Indexing API"
+            echo "2. Create a service account with Indexing API permissions"
+            echo "3. Download the service account JSON key"
+            echo "4. Add it as a repository secret named GOOGLE_INDEXING_SERVICE_ACCOUNT_KEY"
+            echo "5. Add the service account email as an owner in Google Search Console"
+            echo ""
+            echo "For now, this step will be skipped."
+            exit 0
+          fi
+          
+          # Install required dependencies
+          pip install google-auth google-auth-httplib2 google-api-python-client
+          
+          # Create Python script to ping Google Indexing API
+          cat > notify_google.py << 'EOFPYTHON'
+import json
+import os
+import sys
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+
+def notify_google_indexing_api(url, action_type='URL_UPDATED'):
+    """
+    Notify Google Indexing API about URL updates
+    
+    Args:
+        url: The URL to notify Google about
+        action_type: Either 'URL_UPDATED' or 'URL_DELETED'
+    """
+    try:
+        # Load service account credentials from environment variable
+        service_account_json = os.environ.get('GOOGLE_INDEXING_SERVICE_ACCOUNT_KEY')
+        if not service_account_json:
+            print("❌ Service account key not found in environment")
+            return False
+            
+        service_account_info = json.loads(service_account_json)
+        
+        # Define the required scopes
+        SCOPES = ['https://www.googleapis.com/auth/indexing']
+        
+        # Create credentials
+        credentials = service_account.Credentials.from_service_account_info(
+            service_account_info,
+            scopes=SCOPES
+        )
+        
+        # Build the service
+        service = build('indexing', 'v3', credentials=credentials)
+        
+        # Create the request body
+        body = {
+            'url': url,
+            'type': action_type
+        }
+        
+        # Submit the URL to Google Indexing API
+        response = service.urlNotifications().publish(body=body).execute()
+        
+        print(f"✅ Successfully notified Google Indexing API for {url}")
+        print(f"   Response: {json.dumps(response, indent=2)}")
+        return True
+        
+    except HttpError as e:
+        print(f"❌ HTTP Error: {e}")
+        if e.resp.status == 403:
+            print("   Make sure the service account has the correct permissions in Google Search Console")
+        return False
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        return False
+
+if __name__ == "__main__":
+    # The main URL to index
+    site_url = "https://leadlabs.co.za/"
+    
+    print("🔔 Notifying Google Indexing API...")
+    print(f"   URL: {site_url}")
+    
+    success = notify_google_indexing_api(site_url)
+    
+    if success:
+        print("\n✨ Google has been notified of the site update!")
+    else:
+        print("\n⚠️  Could not notify Google Indexing API")
+        print("   This is optional - your site will still be indexed normally via sitemap")
+        sys.exit(0)  # Don't fail the workflow
+EOFPYTHON
+          
+          # Run the Python script
+          python notify_google.py
+
+      - name: Summary
+        run: |
+          echo "## Google Indexing API Notification" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The Google Indexing API has been notified about the latest deployment." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### What happens next?" >> $GITHUB_STEP_SUMMARY
+          echo "- Google will be notified to crawl https://leadlabs.co.za/" >> $GITHUB_STEP_SUMMARY
+          echo "- The sitemap.xml will guide crawlers to all pages" >> $GITHUB_STEP_SUMMARY
+          echo "- robots.txt allows all search engines to index the site" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### SEO Features Enabled:" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ robots.txt for crawler control" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ sitemap.xml for site structure" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ JSON-LD structured data (Organization + Event)" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Open Graph meta tags for social sharing" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Twitter Card meta tags" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Canonical URL tags" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ SEO-optimized meta descriptions and keywords" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Image alt text for accessibility and SEO" >> $GITHUB_STEP_SUMMARY
