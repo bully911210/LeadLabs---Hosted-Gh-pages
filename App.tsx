@@ -127,6 +127,44 @@ const StarRating = () => (
     </div>
 );
 
+// Navigation Component
+const Navigation: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav className={`main-navigation fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'}`}>
+      <div className="max-w-[1200px] mx-auto px-8 py-4 flex justify-between items-center">
+        <div className="logo">
+          <div className="text-2xl font-bold text-[#4C1D95]">LeadLabs™</div>
+          <div className="tagline text-sm text-[#6B7280]">Meta Advertising Specialists</div>
+        </div>
+        
+        <div className="nav-links hidden md:flex gap-8 items-center">
+          <a href="#services" className="text-[#111827] hover:text-[#4C1D95] transition-colors duration-300 font-medium">Services</a>
+          <a href="#technology" className="text-[#111827] hover:text-[#4C1D95] transition-colors duration-300 font-medium">Technology</a>
+          <a href="#case-studies" className="text-[#111827] hover:text-[#4C1D95] transition-colors duration-300 font-medium">Results</a>
+          <a href="#faq" className="text-[#111827] hover:text-[#4C1D95] transition-colors duration-300 font-medium">FAQ</a>
+        </div>
+        
+        <button 
+          onClick={scrollToForm}
+          className="nav-cta bg-[#FACC15] text-[#111827] py-2 px-6 font-semibold rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#FACC15]/50"
+        >
+          Book Free Audit
+        </button>
+      </div>
+    </nav>
+  );
+};
+
 // Page Sections
 // ===================================
 const Section: FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = '', id }) => {
@@ -158,7 +196,7 @@ const Hero: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
   }, []);
 
   return (
-    <div className="relative text-white overflow-hidden min-h-screen flex items-center justify-center">
+    <div className="relative text-white overflow-hidden min-h-screen flex items-center justify-center pt-20">
       <div 
         className="absolute inset-0 bg-[#4C1D95]"
         style={{ transform: `translateY(${offsetY * 0.4}px)` }}
@@ -249,23 +287,177 @@ const PromiseSection: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
   </Section>
 );
 
-const Authority: FC = () => (
-    <Section>
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 items-center">
-            <div className="md:order-2">
-                 <img src="https://i.ibb.co/CKCJrnMv/a-professional-studio-portrait-of-a-dist-EKh-DZ10-NR9-EYkq-ITz-VADA-yns-XM0-QRQme3s0-G8uz3l-Cg-1.png" alt="Franz Badenhorst, founder of LeadLabs by SIG Solutions - Expert in Meta Ads and Sales Automation" className="rounded-2xl shadow-xl w-full h-auto object-cover aspect-square max-w-sm mx-auto" />
-            </div>
-            <div className="text-center md:text-left md:order-1">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#111827]">Built From Real Campaigns That Consistently Close Sales</h2>
-                <p className="text-lg text-[#6B7280] mb-4 leading-relaxed">This system was engineered from high-spend Meta campaigns across multiple industries, refined into a repeatable infrastructure that connects ads, automations, and real-world conversions.</p>
-                <p className="text-lg font-semibold text-[#111827]">Created by Franz Badenhorst, founder of LeadLabs™.</p>
-            </div>
+const CaseStudies: FC = () => (
+  <Section id="case-studies" className="case-studies">
+    <h2 className="text-3xl md:text-5xl font-bold text-center mb-6 text-[#111827]">Real Results From Our Meta Specialist Services</h2>
+    <p className="section-intro text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto text-center mb-12 leading-relaxed">
+      These aren't framework case studies—these are South African businesses whose Meta campaigns 
+      we built, manage, and continuously optimize.
+    </p>
+    
+    {/* CASE STUDY 1: E-COMMERCE */}
+    <div className="case-study dfy-example bg-white rounded-2xl shadow-xl p-8 mb-8 relative border border-gray-200">
+      <div className="flex gap-3 mb-6 flex-wrap">
+        <span className="service-badge bg-[#FACC15] text-[#111827] px-4 py-2 rounded-full text-sm font-bold">DFY Client</span>
+        <span className="industry-badge bg-[#4C1D95] text-white px-4 py-2 rounded-full text-sm font-bold">E-Commerce</span>
+      </div>
+      <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-6">Online Fashion Retailer: R487 to R289 Cost Per Purchase</h3>
+      
+      <div className="metrics-comparison grid md:grid-cols-2 gap-6 mb-8">
+        <div className="before bg-red-50/50 border border-red-100 rounded-xl p-6">
+          <h4 className="text-xl font-bold text-[#111827] mb-4">❌ Before LeadLabs™</h4>
+          <div className="metric text-[#111827] mb-3">Cost Per Purchase: <strong className="text-2xl">R487</strong></div>
+          <div className="metric text-[#111827] mb-3">Conversion Rate: <strong className="text-2xl">1.1%</strong></div>
+          <div className="metric text-[#111827]">ROAS: <strong className="text-2xl">2.3x</strong></div>
         </div>
-    </Section>
+        
+        <div className="after bg-green-50/50 border border-green-100 rounded-xl p-6">
+          <h4 className="text-xl font-bold text-[#111827] mb-4">✅ After LeadLabs™ (Month 6)</h4>
+          <div className="metric success text-[#111827] mb-3">Cost Per Purchase: <strong className="text-2xl text-green-700">R289</strong> <span className="text-sm text-green-600">(40% decrease)</span></div>
+          <div className="metric success text-[#111827] mb-3">Conversion Rate: <strong className="text-2xl text-green-700">3.2%</strong> <span className="text-sm text-green-600">(191% increase)</span></div>
+          <div className="metric success text-[#111827]">ROAS: <strong className="text-2xl text-green-700">5.8x</strong> <span className="text-sm text-green-600">(152% increase)</span></div>
+        </div>
+      </div>
+      
+      <div className="implementation bg-gray-50 rounded-xl p-6 mb-6">
+        <h4 className="text-lg font-bold text-[#111827] mb-4">🔧 Our Implementation:</h4>
+        <ul className="space-y-2">
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>CAPI integration with Shopify store</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Abandoned cart automation (WhatsApp + Email)</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Dynamic product ads with 500+ SKUs</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Custom Looker Studio dashboard</span>
+          </li>
+        </ul>
+      </div>
+      
+      <blockquote className="border-l-4 border-[#4C1D95] pl-6 italic text-lg text-[#111827] bg-white p-6 rounded-r-xl">
+        "We cut cost-per-sale by 40% and doubled conversion in 60 days. The CAPI integration 
+        alone recovered conversions we didn't even know we were losing."
+        <cite className="block text-[#6B7280] not-italic text-base mt-3">— E-Commerce Brand Owner, Johannesburg</cite>
+      </blockquote>
+    </div>
+    
+    {/* CASE STUDY 2: B2B SERVICES */}
+    <div className="case-study dfy-example bg-white rounded-2xl shadow-xl p-8 mb-8 relative border border-gray-200">
+      <div className="flex gap-3 mb-6 flex-wrap">
+        <span className="service-badge bg-[#FACC15] text-[#111827] px-4 py-2 rounded-full text-sm font-bold">DFY Client</span>
+        <span className="industry-badge bg-[#4C1D95] text-white px-4 py-2 rounded-full text-sm font-bold">B2B Services</span>
+      </div>
+      <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-6">Professional Services Firm: R1,245 to R389 Cost Per Qualified Lead</h3>
+      
+      <div className="metrics-comparison grid md:grid-cols-2 gap-6 mb-8">
+        <div className="before bg-red-50/50 border border-red-100 rounded-xl p-6">
+          <h4 className="text-xl font-bold text-[#111827] mb-4">❌ Before LeadLabs™</h4>
+          <div className="metric text-[#111827] mb-3">Cost Per Lead: <strong className="text-2xl">R1,245</strong></div>
+          <div className="metric text-[#111827] mb-3">Lead-to-Call Rate: <strong className="text-2xl">12%</strong></div>
+          <div className="metric text-[#111827]">Response Time: <strong className="text-2xl">6-24 hours</strong></div>
+        </div>
+        
+        <div className="after bg-green-50/50 border border-green-100 rounded-xl p-6">
+          <h4 className="text-xl font-bold text-[#111827] mb-4">✅ After LeadLabs™ (Month 4)</h4>
+          <div className="metric success text-[#111827] mb-3">Cost Per Lead: <strong className="text-2xl text-green-700">R389</strong> <span className="text-sm text-green-600">(69% decrease)</span></div>
+          <div className="metric success text-[#111827] mb-3">Lead-to-Call Rate: <strong className="text-2xl text-green-700">47%</strong> <span className="text-sm text-green-600">(292% increase)</span></div>
+          <div className="metric success text-[#111827]">Response Time: <strong className="text-2xl text-green-700">&lt; 45 seconds</strong> <span className="text-sm text-green-600">(automated)</span></div>
+        </div>
+      </div>
+      
+      <div className="implementation bg-gray-50 rounded-xl p-6 mb-6">
+        <h4 className="text-lg font-bold text-[#111827] mb-4">🔧 Our Implementation:</h4>
+        <ul className="space-y-2">
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>CAPI + LinkedIn lead form integration</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Instant SMS + calendar booking automation</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Lead scoring system (HubSpot CRM)</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Multi-touch attribution dashboard</span>
+          </li>
+        </ul>
+      </div>
+      
+      <blockquote className="border-l-4 border-[#4C1D95] pl-6 italic text-lg text-[#111827] bg-white p-6 rounded-r-xl">
+        "Our lead cost dropped 69% and our sales team's conversion rate tripled. The automated 
+        response system means we never lose a hot lead to slow follow-up."
+        <cite className="block text-[#6B7280] not-italic text-base mt-3">— Managing Director, Cape Town</cite>
+      </blockquote>
+    </div>
+    
+    {/* CASE STUDY 3: ONLINE EDUCATION */}
+    <div className="case-study dfy-example bg-white rounded-2xl shadow-xl p-8 mb-8 relative border border-gray-200">
+      <div className="flex gap-3 mb-6 flex-wrap">
+        <span className="service-badge bg-[#FACC15] text-[#111827] px-4 py-2 rounded-full text-sm font-bold">DWY Client</span>
+        <span className="industry-badge bg-[#4C1D95] text-white px-4 py-2 rounded-full text-sm font-bold">Online Education</span>
+      </div>
+      <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-6">Digital Course Platform: 2.1x to 6.3x ROAS on Course Enrollment</h3>
+      
+      <div className="metrics-comparison grid md:grid-cols-2 gap-6 mb-8">
+        <div className="before bg-red-50/50 border border-red-100 rounded-xl p-6">
+          <h4 className="text-xl font-bold text-[#111827] mb-4">❌ Before LeadLabs™</h4>
+          <div className="metric text-[#111827] mb-3">ROAS: <strong className="text-2xl">2.1x</strong></div>
+          <div className="metric text-[#111827] mb-3">Enrollment Rate: <strong className="text-2xl">3.8%</strong></div>
+          <div className="metric text-[#111827]">Cost Per Enrollment: <strong className="text-2xl">R845</strong></div>
+        </div>
+        
+        <div className="after bg-green-50/50 border border-green-100 rounded-xl p-6">
+          <h4 className="text-xl font-bold text-[#111827] mb-4">✅ After LeadLabs™ (Month 5)</h4>
+          <div className="metric success text-[#111827] mb-3">ROAS: <strong className="text-2xl text-green-700">6.3x</strong> <span className="text-sm text-green-600">(200% increase)</span></div>
+          <div className="metric success text-[#111827] mb-3">Enrollment Rate: <strong className="text-2xl text-green-700">11.2%</strong> <span className="text-sm text-green-600">(195% increase)</span></div>
+          <div className="metric success text-[#111827]">Cost Per Enrollment: <strong className="text-2xl text-green-700">R287</strong> <span className="text-sm text-green-600">(66% decrease)</span></div>
+        </div>
+      </div>
+      
+      <div className="implementation bg-gray-50 rounded-xl p-6 mb-6">
+        <h4 className="text-lg font-bold text-[#111827] mb-4">🔧 Our Implementation:</h4>
+        <ul className="space-y-2">
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>CAPI integration with course platform (Teachable)</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Automated webinar funnel + email nurture sequence</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Video engagement retargeting campaigns</span>
+          </li>
+          <li className="flex items-start text-[#111827]">
+            <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+            <span>Cohort analysis dashboard (Google Data Studio)</span>
+          </li>
+        </ul>
+      </div>
+      
+      <blockquote className="border-l-4 border-[#4C1D95] pl-6 italic text-lg text-[#111827] bg-white p-6 rounded-r-xl">
+        "The team guided us through building a Meta system that tripled our enrollment rate. 
+        The automated webinar funnel alone brought our cost per student down 66%."
+        <cite className="block text-[#6B7280] not-italic text-base mt-3">— Course Creator, Pretoria</cite>
+      </blockquote>
+    </div>
+  </Section>
 );
 
 const WhySpecialists: FC = () => (
-  <Section className="why-specialists">
+  <Section id="technology" className="why-specialists">
     <h2 className="text-3xl md:text-5xl font-bold text-center mb-6 text-[#111827]">Why Meta Specialists Outperform Generalist Agencies</h2>
     <p className="section-intro text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto text-center mb-12 leading-relaxed">
       Most agencies offer "everything"—social content, branding, multi-platform ads. 
@@ -596,7 +788,7 @@ const RegistrationFormSection: FC<{ formRef: React.RefObject<HTMLElement> }> = (
 
 
 const Faq: FC = () => (
-    <Section>
+    <Section id="faq">
         <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-[#111827]">Frequently Asked Questions</h2>
             <div>
@@ -609,9 +801,49 @@ const Faq: FC = () => (
     </Section>
 );
 
-const Footer: FC = () => (
+const Footer: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
     <footer className="bg-[#4C1D95] text-gray-300">
-        <div className="max-w-[1200px] mx-auto py-8 px-8 text-center sm:flex sm:justify-between sm:items-center">
+        {/* Trust Bar */}
+        <div className="trust-bar border-b border-white/10">
+            <div className="max-w-[1200px] mx-auto py-12 px-8 grid md:grid-cols-3 gap-8">
+                <div className="trust-section text-center md:text-left">
+                    <h4 className="text-xl font-bold text-white mb-2">Meta Specialists Based in South Africa</h4>
+                    <p className="text-lg"><strong className="text-white">Johannesburg, Gauteng</strong></p>
+                </div>
+                
+                <div className="trust-section text-center">
+                    <h4 className="text-xl font-bold text-white mb-2">Managed Ad Spend</h4>
+                    <p className="stat-large text-4xl font-bold text-[#FACC15] mb-1">R12.4 Million+</p>
+                    <p className="stat-subtitle text-sm text-gray-400">Across 50+ Meta campaigns</p>
+                </div>
+                
+                <div className="trust-section text-center md:text-right">
+                    <h4 className="text-xl font-bold text-white mb-2">Average Client Results</h4>
+                    <p className="stat-medium text-3xl font-bold text-[#FACC15] mb-1">38% CPA Reduction</p>
+                    <p className="stat-subtitle text-sm text-gray-400">Within first 90 days</p>
+                </div>
+            </div>
+        </div>
+        
+        {/* Footer CTA */}
+        <div className="footer-cta bg-gradient-to-br from-[#4C1D95] to-[#3d1777] py-16 px-8">
+            <div className="max-w-3xl mx-auto text-center">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Transform Your Meta Advertising?</h3>
+                <p className="text-lg text-gray-200 mb-8 leading-relaxed">
+                    Get a free campaign audit and see exactly how CAPI integration, speed-to-lead automation, 
+                    and custom BI dashboards will improve your results.
+                </p>
+                <button 
+                    onClick={scrollToForm}
+                    className="cta-large bg-[#FACC15] text-[#111827] py-4 px-10 text-lg font-bold rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(250,204,21,0.5)] focus:outline-none focus:ring-4 focus:ring-[#FACC15]/50"
+                >
+                    Book Your Free Meta Campaign Audit
+                </button>
+            </div>
+        </div>
+        
+        {/* Copyright */}
+        <div className="max-w-[1200px] mx-auto py-8 px-8 text-center sm:flex sm:justify-between sm:items-center border-t border-white/10">
             <div className="text-center sm:text-left">
                 <p className="text-sm">&copy; {new Date().getFullYear()} LeadLabs™. All Rights Reserved.</p>
                 <p className="text-sm text-gray-400 mt-1">Engineered Systems for Predictable Sales.</p>
@@ -635,19 +867,20 @@ const App: FC = () => {
 
     return (
         <div className="bg-[#FAFAFA] text-[#111827]">
+            <Navigation scrollToForm={scrollToForm} />
             <main>
                 <Hero scrollToForm={scrollToForm} />
                 <WhySpecialists />
                 <ServiceTiers scrollToForm={scrollToForm} />
                 <PromiseSection scrollToForm={scrollToForm} />
-                <Authority />
+                <CaseStudies />
                 <Proof />
                 <Offer scrollToForm={scrollToForm} />
                 <Urgency scrollToForm={scrollToForm} />
                 <RegistrationFormSection formRef={formRef} />
                 <Faq />
             </main>
-            <Footer />
+            <Footer scrollToForm={scrollToForm} />
         </div>
     );
 };
