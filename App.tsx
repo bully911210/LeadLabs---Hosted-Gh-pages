@@ -264,6 +264,158 @@ const Authority: FC = () => (
     </Section>
 );
 
+const ServiceTiers: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
+  <Section id="services" className="bg-gradient-to-b from-[#FAFAFA] to-white">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#111827]">Choose Your Service Level</h2>
+      <p className="text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto">
+        Whether you want us to manage everything or build the system alongside your team, 
+        you get the same world-class Meta infrastructure.
+      </p>
+    </div>
+    
+    <div className="grid md:grid-cols-3 gap-8 mb-12">
+      {/* DFY Tier */}
+      <div className="bg-white rounded-2xl shadow-xl p-8 relative border-2 border-[#FACC15] transform hover:-translate-y-2 transition-all duration-300">
+        <span className="absolute top-0 right-0 bg-[#FACC15] text-[#111827] px-4 py-1 text-sm font-bold rounded-bl-xl rounded-tr-xl">
+          Most Popular
+        </span>
+        <h3 className="text-2xl font-bold text-[#111827] mt-6 mb-2">Done-For-You (DFY)</h3>
+        <p className="text-[#6B7280] mb-4">Complete Meta Campaign Management</p>
+        <p className="text-3xl font-bold text-[#4C1D95] mb-1">From R29,500/month</p>
+        <p className="text-sm text-[#6B7280] mb-6">+ ad spend • Minimum 6-month commitment</p>
+        
+        <ul className="space-y-3 mb-8 text-left">
+          {[
+            'Complete Meta ad account setup & daily management',
+            'CAPI integration & server-side event tracking',
+            'Speed-to-lead automation (< 60-second response)',
+            'Custom BI reporting dashboard (Looker Studio/Tableau)',
+            'Monthly creative production & testing',
+            'Dedicated Meta specialist account manager',
+            'Weekly optimization & performance reviews',
+            'CRM integration (HubSpot, Salesforce, GoHighLevel)',
+            'Budget management & scaling recommendations'
+          ].map((feature, i) => (
+            <li key={i} className="flex items-start text-sm text-[#111827]">
+              <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        
+        <button 
+          onClick={scrollToForm}
+          className="w-full bg-[#4C1D95] text-white py-3 px-6 font-semibold rounded-lg hover:bg-[#3d1777] transition-colors duration-300 mb-4"
+        >
+          Start Your Meta Campaign
+        </button>
+        
+        <p className="text-sm text-[#6B7280]">
+          <strong className="text-[#111827]">Ideal for:</strong> Businesses wanting hands-off Meta campaign management with maximum performance
+        </p>
+      </div>
+      
+      {/* DWY Tier */}
+      <div className="bg-white rounded-2xl shadow-lg p-8 relative border border-gray-200 transform hover:-translate-y-2 transition-all duration-300">
+        <h3 className="text-2xl font-bold text-[#111827] mb-2">Done-With-You (DWY)</h3>
+        <p className="text-[#6B7280] mb-4">Guided Implementation + Team Training</p>
+        <p className="text-3xl font-bold text-[#4C1D95] mb-1">R62,500 setup</p>
+        <p className="text-sm text-[#6B7280] mb-6">+ R12,500/month • 90-day intensive + ongoing support</p>
+        
+        <ul className="space-y-3 mb-8 text-left">
+          {[
+            'We build your Meta system alongside your team',
+            'CAPI setup & configuration (we handle all technical)',
+            'Automation blueprint + implementation support',
+            'BI dashboard deployment & team training',
+            '90-day hands-on optimization partnership',
+            'Campaign strategy & structure documentation',
+            'Team training on Meta best practices',
+            'Monthly strategy sessions post-launch',
+            'Access to our campaign templates & SOPs'
+          ].map((feature, i) => (
+            <li key={i} className="flex items-start text-sm text-[#111827]">
+              <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        
+        <button 
+          onClick={scrollToForm}
+          className="w-full bg-[#4C1D95] text-white py-3 px-6 font-semibold rounded-lg hover:bg-[#3d1777] transition-colors duration-300 mb-4"
+        >
+          Schedule Strategy Call
+        </button>
+        
+        <p className="text-sm text-[#6B7280]">
+          <strong className="text-[#111827]">Ideal for:</strong> Teams with in-house marketers who want expert guidance and technical infrastructure
+        </p>
+      </div>
+      
+      {/* Hybrid Tier */}
+      <div className="bg-white rounded-2xl shadow-lg p-8 relative border border-gray-200 transform hover:-translate-y-2 transition-all duration-300">
+        <span className="absolute top-0 right-0 bg-[#4C1D95] text-white px-4 py-1 text-sm font-bold rounded-bl-xl rounded-tr-xl">
+          Flexible
+        </span>
+        <h3 className="text-2xl font-bold text-[#111827] mt-6 mb-2">Hybrid Model</h3>
+        <p className="text-[#6B7280] mb-4">DFY Launch → DWY Transition</p>
+        <p className="text-3xl font-bold text-[#4C1D95] mb-1">Custom pricing</p>
+        <p className="text-sm text-[#6B7280] mb-6">based on scale • Structured transition plan</p>
+        
+        <ul className="space-y-3 mb-8 text-left">
+          {[
+            'DFY campaign launch (first 90 days)',
+            'We deliver immediate results while training your team',
+            'All technical infrastructure built & documented',
+            'Gradual handover with ongoing strategic support',
+            'Flexible engagement model adapts to your needs',
+            'Scale at your pace',
+            'Knowledge transfer built into process'
+          ].map((feature, i) => (
+            <li key={i} className="flex items-start text-sm text-[#111827]">
+              <span className="text-[#FACC15] mr-2 flex-shrink-0">✅</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        
+        <button 
+          onClick={scrollToForm}
+          className="w-full bg-[#4C1D95] text-white py-3 px-6 font-semibold rounded-lg hover:bg-[#3d1777] transition-colors duration-300 mb-4"
+        >
+          Discuss Custom Plan
+        </button>
+        
+        <p className="text-sm text-[#6B7280]">
+          <strong className="text-[#111827]">Ideal for:</strong> Growing businesses that want fast results now and in-house capabilities later
+        </p>
+      </div>
+    </div>
+    
+    {/* Service Guarantee */}
+    <div className="bg-gradient-to-br from-[#4C1D95] to-[#3d1777] rounded-2xl p-8 md:p-12 text-white">
+      <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">Our Performance Commitment</h3>
+      <p className="text-lg text-center mb-8 text-gray-200">
+        We're so confident in our Meta systems that we include these guarantees:
+      </p>
+      <ul className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        {[
+          'CAPI event match quality above 80% within 30 days',
+          'Lead response time under 60 seconds or we rebuild the automation',
+          'Custom BI dashboard deployed within 14 days of onboarding',
+          'Monthly performance reviews with documented optimization actions'
+        ].map((guarantee, i) => (
+          <li key={i} className="flex items-start">
+            <span className="text-[#FACC15] mr-3 flex-shrink-0 text-lg">✅</span>
+            <span className="text-gray-100">{guarantee}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+);
 
 const Proof: FC = () => (
     <Section>
@@ -405,6 +557,7 @@ const App: FC = () => {
         <div className="bg-[#FAFAFA] text-[#111827]">
             <main>
                 <Hero scrollToForm={scrollToForm} />
+                <ServiceTiers scrollToForm={scrollToForm} />
                 <PromiseSection scrollToForm={scrollToForm} />
                 <Authority />
                 <Proof />
