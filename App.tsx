@@ -264,6 +264,86 @@ const Authority: FC = () => (
     </Section>
 );
 
+const WhySpecialists: FC = () => (
+  <Section className="why-specialists">
+    <h2 className="text-3xl md:text-5xl font-bold text-center mb-6 text-[#111827]">Why Meta Specialists Outperform Generalist Agencies</h2>
+    <p className="section-intro text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto text-center mb-12 leading-relaxed">
+      Most agencies offer "everything"—social content, branding, multi-platform ads. 
+      We do one thing exceptionally well: Meta advertising with technical infrastructure 
+      that compounds performance over time.
+    </p>
+    
+    <div className="comparison-grid grid md:grid-cols-2 gap-8 mb-12">
+      <div className="comparison-column generalist bg-red-50/50 border border-red-100 rounded-2xl p-8 shadow-lg">
+        <h3 className="text-2xl font-bold mb-6 text-[#111827]">❌ Generalist Digital Marketing Agencies</h3>
+        <ul className="comparison-list space-y-4 mb-6">
+          <li className="text-[#111827]">
+            <strong>Offer everything:</strong> Social content, branding, SEO, Google Ads, Facebook Ads, LinkedIn Ads
+          </li>
+          <li className="text-[#111827]">
+            <strong>Basic pixel tracking:</strong> Standard Meta Pixel setup losing 20-35% of iOS conversions
+          </li>
+          <li className="text-[#111827]">
+            <strong>Manual lead follow-up:</strong> Leads forwarded via email (4-48 hour delay)
+          </li>
+          <li className="text-[#111827]">
+            <strong>Basic reporting:</strong> Standard Ads Manager screenshots or PDF reports
+          </li>
+          <li className="text-[#111827]">
+            <strong>Platform-hopping:</strong> "Let's try Facebook, then LinkedIn, then Google"
+          </li>
+          <li className="text-[#111827]">
+            <strong>Cookie-cutter campaigns:</strong> Same structure across all clients
+          </li>
+        </ul>
+        <p className="outcome negative bg-red-100 border border-red-200 rounded-lg p-4 text-[#111827]">
+          <strong>Result:</strong> Moderate performance across many services, no technical depth
+        </p>
+      </div>
+      
+      <div className="comparison-column specialist bg-green-50/50 border border-green-100 rounded-2xl p-8 shadow-lg">
+        <h3 className="text-2xl font-bold mb-6 text-[#111827]">✅ LeadLabs™ Meta Specialists</h3>
+        <ul className="comparison-list space-y-4 mb-6">
+          <li className="text-[#111827]">
+            <strong>Meta advertising only:</strong> 100% focus on Facebook & Instagram campaigns
+          </li>
+          <li className="text-[#111827]">
+            <strong>CAPI + Pixel hybrid:</strong> Server-side tracking recovering lost iOS conversions
+          </li>
+          <li className="text-[#111827]">
+            <strong>&lt; 60-second automation:</strong> Instant SMS/email/CRM engagement (391% higher conversions)
+          </li>
+          <li className="text-[#111827]">
+            <strong>Custom BI dashboards:</strong> Real-time Looker Studio/Tableau with CAPI metrics
+          </li>
+          <li className="text-[#111827]">
+            <strong>Deep Meta mastery:</strong> Algorithm updates, beta features, bidding strategies
+          </li>
+          <li className="text-[#111827]">
+            <strong>Industry frameworks:</strong> Proven architectures for e-commerce, B2B, lead gen
+          </li>
+        </ul>
+        <p className="outcome positive bg-green-100 border border-green-200 rounded-lg p-4 text-[#111827]">
+          <strong>Result:</strong> 2-4x better Meta performance through specialization
+        </p>
+      </div>
+    </div>
+    
+    <div className="specialist-statement bg-gradient-to-br from-[#4C1D95] to-[#3d1777] rounded-2xl p-8 md:p-12 text-white">
+      <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">The Specialist Advantage</h3>
+      <p className="text-lg text-center mb-4 text-gray-100 leading-relaxed">
+        While generalist agencies dilute their expertise across 10+ services, we've spent years 
+        mastering ONE platform. Every Meta algorithm update, every iOS privacy change, every 
+        bidding strategy evolution—we've already tested it, optimized for it, and built systems around it.
+      </p>
+      <p className="text-lg text-center text-gray-100 leading-relaxed">
+        <strong>Your campaigns don't need another social media content creator. They need Meta specialists 
+        with enterprise infrastructure.</strong>
+      </p>
+    </div>
+  </Section>
+);
+
 const ServiceTiers: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
   <Section id="services" className="bg-gradient-to-b from-[#FAFAFA] to-white">
     <div className="text-center mb-12">
@@ -557,6 +637,7 @@ const App: FC = () => {
         <div className="bg-[#FAFAFA] text-[#111827]">
             <main>
                 <Hero scrollToForm={scrollToForm} />
+                <WhySpecialists />
                 <ServiceTiers scrollToForm={scrollToForm} />
                 <PromiseSection scrollToForm={scrollToForm} />
                 <Authority />
