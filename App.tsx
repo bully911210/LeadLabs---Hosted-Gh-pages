@@ -167,15 +167,55 @@ const Hero: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#4C1D95] via-transparent to-[#1E1B4B]"></div>
       </div>
 
-      <div className="relative z-10 text-center py-24 px-8">
+      <div className="relative z-10 text-center py-24 px-8 max-w-6xl mx-auto">
+        <span className="inline-block bg-[#FACC15] text-[#111827] px-6 py-2 rounded-full text-sm font-bold mb-6">
+          Meta Advertising Specialists
+        </span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-          Turn Your Meta Ads Into a<br/>
-          <span className="text-[#FACC15]">Predictable Sales System.</span>
+          We Build & Manage Your Complete Meta Revenue System
         </h1>
-        <p className="text-lg md:text-xl text-gray-200/90 max-w-3xl mx-auto mb-10">
-          Discover the proven framework that converts social traffic into paying clients without manual follow-ups, chaos, or guesswork.
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight mb-6 text-gray-200">
+          Done-With-You & Done-For-You Meta Advertising + Advanced Automation
+        </h2>
+        <p className="text-lg md:text-xl text-gray-200/90 max-w-3xl mx-auto mb-10 leading-relaxed">
+          South Africa's only agency specializing exclusively in Meta advertising with 
+          enterprise-grade CAPI integration, sub-60-second lead response automation, 
+          and custom BI dashboards. No generalist services. Just Meta campaigns engineered 
+          to perform.
         </p>
-        <CtaButton onClick={scrollToForm}>Join the Free Training</CtaButton>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
+          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+            <span className="text-4xl mb-3 block">🎯</span>
+            <p className="font-bold text-lg mb-1">Meta CAPI Certified</p>
+            <p className="text-sm text-gray-300">Server-side tracking infrastructure</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+            <span className="text-4xl mb-3 block">⚡</span>
+            <p className="font-bold text-lg mb-1">&lt; 60 Second Response</p>
+            <p className="text-sm text-gray-300">Automated lead engagement</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+            <span className="text-4xl mb-3 block">📊</span>
+            <p className="font-bold text-lg mb-1">Custom BI Dashboards</p>
+            <p className="text-sm text-gray-300">Real-time performance visibility</p>
+          </div>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <CtaButton onClick={scrollToForm}>Get Your Free Meta Campaign Audit</CtaButton>
+          <button
+            onClick={scrollToForm}
+            className="bg-white text-[#4C1D95] py-[14px] px-8 font-semibold rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(250,204,21,0.25)] focus:outline-none focus:ring-4 focus:ring-white/50"
+          >
+            View Service Packages
+          </button>
+        </div>
+        
+        <p className="text-gray-300 text-base">
+          <strong className="text-white">R12.4 million+ in tracked ad spend managed</strong> • 50+ Meta campaigns optimized • 
+          Average client CPA reduction: 38% in first 90 days
+        </p>
       </div>
     </div>
   );
@@ -184,7 +224,7 @@ const Hero: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
 const PromiseSection: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
   <Section>
     <div className="text-center">
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-[#111827]">The Proven Meta-to-Sales Framework</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-[#111827]">The Proven Meta-to-Sales System</h2>
       <div className="grid md:grid-cols-3 gap-8 text-left">
         {[
           { icon: 'check', title: 'Campaigns That Attract Buyers', text: 'Not browsers. Qualified prospects ready to purchase.'},
@@ -203,7 +243,7 @@ const PromiseSection: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
         ))}
       </div>
       <div className="mt-16">
-        <CtaButton onClick={scrollToForm}>Watch the System in Action</CtaButton>
+        <CtaButton onClick={scrollToForm}>Get Your Free Meta Campaign Audit</CtaButton>
       </div>
     </div>
   </Section>
@@ -217,7 +257,7 @@ const Authority: FC = () => (
             </div>
             <div className="text-center md:text-left md:order-1">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#111827]">Built From Real Campaigns That Consistently Close Sales</h2>
-                <p className="text-lg text-[#6B7280] mb-4 leading-relaxed">This framework was engineered from high-spend Meta campaigns across multiple industries, refined into a repeatable system that connects ads, automations, and real-world conversions.</p>
+                <p className="text-lg text-[#6B7280] mb-4 leading-relaxed">This system was engineered from high-spend Meta campaigns across multiple industries, refined into a repeatable infrastructure that connects ads, automations, and real-world conversions.</p>
                 <p className="text-lg font-semibold text-[#111827]">Created by Franz Badenhorst, founder of LeadLabs™.</p>
             </div>
         </div>
@@ -245,13 +285,13 @@ const Proof: FC = () => (
 
 const Offer: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
     <Section className="bg-[#4C1D95] text-white">
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Inside the Free Session You’ll Learn How To:</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Inside the Free Session You’ll See How We:</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
-          { title: "Map the Meta-to-Sale Engine", desc: "See exactly how ad clicks turn into purchases or sign-ups." },
+          { title: "Build the Meta-to-Sale Engine", desc: "See exactly how ad clicks turn into purchases or sign-ups." },
           { title: "Automate Every Step", desc: "From data capture to follow-up to close, using tools you already know." },
-          { title: "Fix Ad Messaging", desc: "Write campaigns that attract buyers ready to act now." },
-          { title: "Replicate the System", desc: "Install the same framework inside your business or client accounts." },
+          { title: "Fix Ad Messaging", desc: "We build campaigns that attract buyers ready to act now." },
+          { title: "Replicate the System", desc: "Install the same infrastructure inside your business or client accounts." },
         ].map((item, i) => (
           <div key={i} className="bg-white/10 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/20">
             <div className="bg-[#FACC15] w-10 h-10 rounded-full flex items-center justify-center mb-5 text-xl font-bold text-[#111827]">{i + 1}</div>
@@ -261,7 +301,7 @@ const Offer: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
         ))}
       </div>
       <div className="text-center mt-16">
-        <CtaButton onClick={scrollToForm}>Join the Free Webinar</CtaButton>
+        <CtaButton onClick={scrollToForm}>Book Your Free Strategy Call</CtaButton>
       </div>
     </Section>
 );
@@ -269,7 +309,7 @@ const Offer: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
 const Urgency: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
     <Section>
         <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827]">Next Live Training: Learn the Full Meta-to-Sales Framework</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827]">Next Live Training: Learn the Full Meta-to-Sales System</h2>
             <CountdownTimer targetDate="2025-11-10T19:00:00+02:00" />
             <p className="text-[#6B7280] mb-8 text-lg">Seats are limited to keep the live Q&A focused and practical. Don’t miss the walkthrough, where you’ll see real campaigns and automations in action.</p>
             <CtaButton onClick={scrollToForm}>Save My Seat</CtaButton>
@@ -328,7 +368,7 @@ const Faq: FC = () => (
         <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-[#111827]">Frequently Asked Questions</h2>
             <div>
-                <FaqItem question="Is this really free?">Yes, it’s an open training showing the full Meta-to-Sales Framework.</FaqItem>
+                <FaqItem question="Is this really free?">Yes, it’s an open training showing the full Meta-to-Sales System.</FaqItem>
                 <FaqItem question="Will this work for my business?">Absolutely. It’s built on buyer psychology, not industry. Whether you sell products, memberships, or services, the process remains identical.</FaqItem>
                 <FaqItem question="Do I need technical skills?">No. Everything runs on simple tools, you’ll see how in the live session.</FaqItem>
                 <FaqItem question="What happens after the webinar?">You’ll get access to the replay and be invited to test-drive the full LeadLabs system.</FaqItem>
