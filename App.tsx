@@ -285,7 +285,7 @@ const Proof: FC = () => (
 
 const Offer: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
     <Section className="bg-[#4C1D95] text-white">
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Inside the Free Session You’ll Learn How To:</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Inside the Free Session You’ll See How We:</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
           { title: "Build the Meta-to-Sale Engine", desc: "See exactly how ad clicks turn into purchases or sign-ups." },
