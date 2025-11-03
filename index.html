@@ -22,6 +22,11 @@
     <meta name="twitter:description" content="Franz Badenhorst builds measurable Meta ad ecosystems and sales automations for high-volume South African brands. Real campaigns. Real results.">
     <meta name="twitter:image" content="/assets/preview.png">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -35,19 +40,67 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             line-height: 1.6;
         }
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1.5rem 2rem;
+        }
+        .header.scrolled {
+            background: rgba(26, 9, 63, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-content {
+            max-width: 72rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: #FFD600;
+        }
         .bg-hero-pattern {
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a0f2e 100%);
+            background: linear-gradient(135deg, #0f0f1a 0%, #1A093F 100%);
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding-top: 5rem;
         }
         .bg-hero-pattern::before {
             content: '';
@@ -78,28 +131,29 @@
             margin: 0 auto;
         }
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
         .hero-content .subheadline {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: #d1d5db;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             line-height: 1.6;
         }
-        .hero-content .contact-line {
-            font-size: 1.125rem;
-            color: #9ca3af;
+        .hero-content .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
         }
-        .hero-content a {
-            color: #facc15;
-            text-decoration: none;
-        }
-        .hero-content a:hover {
-            text-decoration: underline;
+        @media (min-width: 640px) {
+            .hero-content .cta-buttons {
+                flex-direction: row;
+            }
         }
         .section {
             padding: 5rem 2rem;
@@ -112,11 +166,11 @@
             color: white;
         }
         .section-purple {
-            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            background: linear-gradient(135deg, #1A093F 0%, #2d1055 100%);
             color: white;
         }
         .section-footer {
-            background-color: #111827;
+            background-color: #0f0f1a;
             color: #9ca3af;
             padding: 2rem;
         }
@@ -141,7 +195,12 @@
                 grid-template-columns: repeat(3, 1fr);
             }
             .hero-content h1 {
-                font-size: 4.5rem;
+                font-size: 3.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-content h1 {
+                font-size: 4rem;
             }
         }
         .card {
@@ -170,7 +229,7 @@
         .metric-block .metric-value {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #facc15;
+            color: #FFD600;
             margin-bottom: 0.75rem;
         }
         .metric-block p {
@@ -215,16 +274,19 @@
         }
         .btn {
             display: inline-block;
-            background-color: #facc15;
+            background-color: #FFD600;
             color: #000;
-            padding: 0.75rem 2rem;
-            border-radius: 0.75rem;
+            padding: 0.875rem 2.5rem;
+            border-radius: 0.5rem;
             font-weight: 600;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            font-size: 1rem;
         }
         .btn:hover {
             background-color: #fde047;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
         }
         .footer-content {
             text-align: center;
@@ -234,18 +296,110 @@
             margin-bottom: 0.75rem;
         }
         .footer-content a {
-            color: #facc15;
+            color: #FFD600;
             text-decoration: none;
         }
         .footer-content a:hover {
             text-decoration: underline;
         }
+        /* YouTube Section Styles */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .expertise-note {
+            text-align: center;
+            font-style: italic;
+            color: #6b7280;
+            margin-top: 2rem;
+            font-size: 1.125rem;
+        }
+        .case-study-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .case-study-link a {
+            color: #FFD600;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        .case-study-link a:hover {
+            text-decoration: underline;
+        }
+        .contact-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.125rem;
+            color: #d1d5db;
+        }
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
     </style>
+    <script>
+        // Sticky header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade in sections on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('fade-in');
+                }, index * 100);
+            });
+        });
+    </script>
 </head>
 <body class="antialiased">
     
+    <!-- STICKY HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#hero" class="logo">LeadLabs™</a>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#youtube">YouTube</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
     <!-- HERO SECTION -->
-    <header class="bg-hero-pattern">
+    <section id="hero" class="bg-hero-pattern">
         <!-- Background Metrics -->
         <div class="metric-overlay" style="top: 10%; left: 5%;">ROAS 4.8x</div>
         <div class="metric-overlay" style="bottom: 15%; right: 10%;">CPL ↓40%</div>
@@ -253,21 +407,31 @@
         
         <div class="hero-content">
             <h1>
-                I Build Meta Campaigns That Turn Ad Spend Into Predictable Sales
+                I Build Meta Campaigns That Turn Ad Spend Into Predictable Sales.
             </h1>
             <p class="subheadline">
-                Over R12.4M closed through Meta campaigns for South African brands.<br>
-                Architected automations. Verified results. Real clients.
+                Franz Badenhorst — Meta Ads & Automation Architect.<br>
+                Over R12.4M in verified Meta-driven sales across South African brands.
             </p>
-            <p class="contact-line">
-                <a href="https://wa.me/27621779799" aria-label="Contact Franz on WhatsApp">WhatsApp: +27 62 177 9799</a> | 
-                <a href="mailto:franz@sigsolutions.co.za" aria-label="Email Franz">franz@sigsolutions.co.za</a>
-            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/27621779799" 
+                   class="btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Chat on WhatsApp">
+                    Chat on WhatsApp
+                </a>
+                <a href="mailto:franz@sigsolutions.co.za" 
+                   class="btn"
+                   aria-label="Email Franz">
+                    Email Franz
+                </a>
+            </div>
         </div>
-    </header>
+    </section>
     
     <!-- EXPERTISE SECTION -->
-    <section class="section section-white">
+    <section id="about" class="section section-white">
         <div class="container">
             <h2>Expertise</h2>
             <div class="grid-3">
@@ -282,23 +446,26 @@
                 <article class="card">
                     <h3>Automation Architecture</h3>
                     <p>
-                        n8n + Supabase + Meta setups for lead follow-up and conversion.
+                        Custom n8n + Supabase + Meta setups that close leads automatically.
                     </p>
                 </article>
                 
                 <article class="card">
                     <h3>Sales Systems Engineering</h3>
                     <p>
-                        Automated data pipelines and dashboards supporting a 20-agent call center.
+                        Automation and reporting pipelines powering 20-agent call centers.
                     </p>
                 </article>
                 
             </div>
+            <p class="expertise-note">
+                No templates. Every system is engineered from real campaign data.
+            </p>
         </div>
     </section>
     
     <!-- PROOF SECTION -->
-    <section class="section section-dark">
+    <section id="work" class="section section-dark">
         <div class="container">
             <h2>Real Campaigns. Real Metrics.</h2>
             <div class="grid-3">
@@ -325,6 +492,44 @@
                 </div>
                 
             </div>
+            <div class="case-study-link">
+                <a href="#contact">See More Results →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- YOUTUBE / CONTENT SECTION -->
+    <section id="youtube" class="section section-white">
+        <div class="container">
+            <h2>Watch the Systems in Action.</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 2rem; font-size: 1.125rem;">
+                Franz documents real builds — Meta ads, n8n automations, and client systems that close.
+            </p>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="button-group">
+                <a href="https://www.youtube.com/@franzbadenhorst" 
+                   class="btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Subscribe on YouTube">
+                    Subscribe on YouTube
+                </a>
+                <a href="https://www.youtube.com/@franzbadenhorst/playlists" 
+                   class="btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="View All Tutorials">
+                    View All Tutorials
+                </a>
+            </div>
         </div>
     </section>
     
@@ -347,15 +552,17 @@
     </section>
     
     <!-- CONTACT SECTION -->
-    <section class="section section-purple">
+    <section id="contact" class="section section-purple">
         <div class="container cta-section">
             <h2>Work With Precision.</h2>
             <p class="subtitle">
-                No templates. No funnels. Real systems that close sales.
+                If you're ready for real, measurable Meta performance — reach out directly.
             </p>
             <div class="button-group">
                 <a href="https://wa.me/27621779799" 
                    class="btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
                    aria-label="Chat on WhatsApp">
                     Chat on WhatsApp
                 </a>
@@ -365,6 +572,9 @@
                     Email Franz
                 </a>
             </div>
+            <p class="contact-note">
+                No pitches. Just real systems.
+            </p>
         </div>
     </section>
     
@@ -378,7 +588,7 @@
                 Engineered Campaigns. Predictable Sales.
             </p>
             <p>
-                <a href="https://wa.me/27621779799" aria-label="Contact via WhatsApp">WhatsApp: +27 62 177 9799</a> | 
+                <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp">WhatsApp: +27 62 177 9799</a> | 
                 <a href="mailto:franz@sigsolutions.co.za" aria-label="Email contact">franz@sigsolutions.co.za</a>
             </p>
             <p>
