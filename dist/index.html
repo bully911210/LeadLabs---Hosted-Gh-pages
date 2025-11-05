@@ -1,34 +1,54 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franz Badenhorst | Strategic Revenue Partner for Meta Advertising</title>
     <meta name="description" content="I deliver measurable revenue growth through Meta advertising systems. R12.4M tracked and verified across South African brands. Real profit accountability, not just campaign management.">
-    <link rel="icon" href="/assets/favicon-DTTmoiSm.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://leadlabs.co.za/">
     <meta property="og:title" content="Franz Badenhorst | Strategic Revenue Partner for Meta Advertising">
     <meta property="og:description" content="I deliver measurable revenue growth through Meta advertising systems. R12.4M tracked and verified across South African brands. Real profit accountability, not just campaign management.">
-    <meta property="og:image" content="/assets/preview-CTHHnk5b.png">
+    <meta property="og:image" content="/assets/preview.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://leadlabs.co.za/">
     <meta name="twitter:title" content="Franz Badenhorst | Strategic Revenue Partner for Meta Advertising">
     <meta name="twitter:description" content="I deliver measurable revenue growth through Meta advertising systems. R12.4M tracked and verified across South African brands. Real profit accountability, not just campaign management.">
-    <meta name="twitter:image" content="/assets/preview-CTHHnk5b.png">
+    <meta name="twitter:image" content="/assets/preview.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        violet: {
+                            primary: '#7B61FF',
+                            dark: '#6B51E5',
+                        },
+                        charcoal: '#121212',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     
     <style>
         * {
@@ -36,225 +56,206 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         html {
             scroll-behavior: smooth;
         }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             line-height: 1.6;
         }
-        .bg-hero-pattern {
-            background: linear-gradient(135deg, #0f0f1a 0%, #1A093F 100%);
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .bg-hero-pattern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .metric-overlay {
-            position: absolute;
-            font-size: 8rem;
-            font-weight: 900;
-            opacity: 0.03;
-            pointer-events: none;
-            user-select: none;
-            color: white;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 2rem;
-            max-width: 80rem;
-            margin: 0 auto;
-        }
-        .hero-content h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        .hero-content .subheadline {
-            font-size: 1.25rem;
-            color: #d1d5db;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-        .hero-content .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            align-items: center;
-            justify-content: center;
-        }
-        @media (min-width: 640px) {
-            .hero-content .cta-buttons {
-                flex-direction: row;
-            }
-        }
-        .section {
-            padding: 5rem 2rem;
-        }
-        .section-white {
-            background-color: #ffffff;
-        }
-        .section-dark {
+        
+        .dark body {
             background-color: #121212;
-            color: white;
+            color: #f9fafb;
         }
-        .section-purple {
-            background: linear-gradient(135deg, #1A093F 0%, #2d1055 100%);
-            color: white;
-        }
-        .section-footer {
-            background-color: #0f0f1a;
-            color: #9ca3af;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 72rem;
-            margin: 0 auto;
-        }
-        .section h2 {
-            font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: inherit;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        @media (min-width: 768px) {
-            .grid-3 {
-                grid-template-columns: repeat(3, 1fr);
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            .hero-content h1 {
-                font-size: 3.5rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        @media (min-width: 1024px) {
-            .hero-content h1 {
-                font-size: 4rem;
+        
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
-        .card {
-            background-color: #f9fafb;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-        .card:hover {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-        }
-        .card h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #111827;
-        }
-        .card p {
-            color: #374151;
-            line-height: 1.6;
-        }
-        .metric-block {
-            text-align: center;
-        }
-        .metric-block .metric-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #FFD600;
-            margin-bottom: 0.75rem;
-        }
-        .metric-block p {
-            color: #d1d5db;
-            font-size: 1.125rem;
-        }
-        .philosophy-quotes {
-            max-width: 50rem;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .philosophy-quotes blockquote {
-            font-size: 1.5rem;
-            color: #6b7280;
-            font-style: italic;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        .cta-section {
-            text-align: center;
-        }
-        .cta-section h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        .cta-section .subtitle {
-            font-size: 1.25rem;
-            color: #d1d5db;
-            margin-bottom: 3rem;
-        }
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
-        }
-        @media (min-width: 640px) {
-            .button-group {
-                flex-direction: row;
-                justify-content: center;
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
-        .btn {
-            display: inline-block;
-            background-color: #FFD600;
-            color: #000;
-            padding: 0.875rem 2.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            text-decoration: none;
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .slide-in-left {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+        
+        .slide-in-right {
+            animation: slideInFromRight 0.8s ease-out forwards;
+        }
+        
+        .count-up {
+            animation: countUp 1s ease-out forwards;
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-violet {
+            background: linear-gradient(135deg, #7B61FF 0%, #5B41D5 100%);
+        }
+        
+        .gradient-violet-indigo {
+            background: linear-gradient(135deg, #7B61FF 0%, #4F46E5 100%);
+        }
+        
+        .gradient-dark {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(123, 97, 255, 0.2);
+        }
+        
+        /* Sticky header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(18, 18, 18, 0.9);
             transition: all 0.3s ease;
-            font-size: 1rem;
         }
-        .btn:hover {
-            background-color: #fde047;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
-        }
-        .footer-content {
+        
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
             text-align: center;
+            font-size: 30px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .footer-content p {
-            font-size: 0.875rem;
-            margin-bottom: 0.75rem;
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
         }
-        .footer-content a {
-            color: #FFD600;
-            text-decoration: none;
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-        .footer-content a:hover {
-            text-decoration: underline;
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
         }
-        /* YouTube Section Styles */
+        
+        ::-webkit-scrollbar-thumb {
+            background: #7B61FF;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B51E5;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 0;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeInUp 0.3s ease-out;
+        }
+        
+        .dark .modal-content {
+            background-color: #1f1f1f;
+        }
+        
+        /* Results expand */
+        .results-expanded {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .results-expanded.show {
+            max-height: none;
+        }
+        
+        /* Video container */
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -262,8 +263,8 @@
             overflow: hidden;
             max-width: 100%;
             border-radius: 0.5rem;
-            margin-bottom: 2rem;
         }
+        
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -271,247 +272,515 @@
             width: 100%;
             height: 100%;
         }
-        .expertise-note {
-            text-align: center;
-            font-style: italic;
-            color: #6b7280;
-            margin-top: 2rem;
-            font-size: 1.125rem;
-        }
-        .case-study-link {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .case-study-link a {
-            color: #FFD600;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.125rem;
-        }
-        .case-study-link a:hover {
-            text-decoration: underline;
-        }
-        .contact-note {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 1.125rem;
-            color: #d1d5db;
-        }
-        /* Fade in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
     </style>
     <script>
-        // Fade in sections on load
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Animated counter
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            const decimals = target % 1 === 0 ? 0 : 1; // Use 0 decimals for whole numbers, 1 for decimals
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toFixed(decimals);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = current.toFixed(decimals);
+                }
+            }, 16);
+        }
+        
+        // Intersection Observer for animations
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('fade-in');
-                }, index * 100);
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        
+                        // Animate counters
+                        if (entry.target.classList.contains('metric-counter')) {
+                            const targetValue = parseFloat(entry.target.dataset.target);
+                            animateCounter(entry.target, targetValue);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+            document.querySelectorAll('.metric-counter').forEach(el => observer.observe(el));
+        });
+        
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+        
+        // Expand results
+        function toggleResults() {
+            const expandedSection = document.getElementById('expandedResults');
+            const button = document.getElementById('expandButton');
+            
+            if (expandedSection.classList.contains('show')) {
+                expandedSection.classList.remove('show');
+                button.textContent = 'See More Results →';
+            } else {
+                expandedSection.classList.add('show');
+                button.textContent = 'Show Less ←';
+            }
+        }
+        
+        // Smooth scroll with offset for sticky header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-white dark:bg-charcoal transition-colors duration-300">
+    
+    <!-- STICKY HEADER -->
+    <header class="sticky-header border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-display font-bold text-white">LeadLabs<span class="text-violet-primary">™</span></span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-800 text-gray-400 hover:text-white transition-colors" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <a href="#youtube" class="hidden sm:inline-block px-5 py-2.5 bg-violet-primary hover:bg-violet-dark text-white font-semibold rounded-lg transition-all hover:scale-105">
+                        Join Webinar
+                    </a>
+                    <a href="#contact" class="px-5 py-2.5 border-2 border-violet-primary text-violet-primary hover:bg-violet-primary hover:text-white font-semibold rounded-lg transition-all">
+                        Book Audit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
     
     <!-- HERO SECTION -->
-    <section id="hero" class="bg-hero-pattern">
-        <!-- Background Metrics -->
-        <div class="metric-overlay" style="top: 10%; left: 5%;">ROAS 4.8x</div>
-        <div class="metric-overlay" style="bottom: 15%; right: 10%;">CPL ↓40%</div>
-        <div class="metric-overlay" style="top: 60%; left: 60%;">R12.4M</div>
+    <section id="hero" class="relative min-h-screen bg-charcoal overflow-hidden">
+        <!-- Background gradient -->
+        <div class="absolute inset-0 gradient-violet-indigo opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-primary/5 via-transparent to-indigo-600/5"></div>
         
-        <div class="hero-content">
-            <h1>
-                I Don't Run Ads for You.<br>
-                I Own Your Meta Revenue Outcomes.
-            </h1>
-            <p class="subheadline">
-                Franz Badenhorst — Strategic Revenue Partner for Meta Advertising.<br>
-                I've delivered R12.4M in tracked, verified revenue across South African brands. Not projected. Delivered.
-            </p>
-            <div class="cta-buttons">
-                <a href="#youtube" 
-                   class="btn"
-                   aria-label="Join the Next Live Session">
-                    Join the Next Live Session
-                </a>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Column: Positioning -->
+                <div class="slide-in-left space-y-8">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
+                        I Don't Run Ads for You.<br>
+                        <span class="text-violet-primary">I Own Your Meta Revenue Outcomes.</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        Franz Badenhorst — Strategic Revenue Partner for Meta Advertising.
+                    </p>
+                    
+                    <p class="text-lg text-gray-400">
+                        I've delivered <span class="text-violet-primary font-bold">R12.4M</span> in tracked, verified revenue across South African brands. Not projected. <span class="font-semibold text-white">Delivered.</span>
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#youtube" class="px-8 py-4 bg-violet-primary hover:bg-violet-dark text-white font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-lg hover:shadow-violet-primary/50 text-center">
+                            Join the Next Live Session
+                        </a>
+                        <a href="#contact" class="px-8 py-4 border-2 border-violet-primary text-violet-primary hover:bg-violet-primary hover:text-white font-semibold rounded-lg transition-all text-center">
+                            Book Private Audit
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Metrics Card -->
+                <div class="slide-in-right">
+                    <div class="gradient-dark p-8 rounded-2xl shadow-2xl border border-gray-800 hover-lift">
+                        <h3 class="text-2xl font-display font-bold text-white mb-8 text-center">Performance Metrics</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Metric 1 -->
+                            <div class="bg-gradient-to-r from-violet-primary/10 to-transparent p-6 rounded-xl border border-violet-primary/20">
+                                <div class="flex items-baseline justify-between">
+                                    <span class="text-gray-400 text-sm font-medium">Revenue Delivered</span>
+                                    <div class="flex items-baseline">
+                                        <span class="text-violet-primary text-3xl font-bold">R</span>
+                                        <span class="metric-counter count-up text-4xl font-display font-bold text-white ml-1" data-target="12.4">0.0</span>
+                                        <span class="text-white text-2xl font-bold ml-1">M</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Metric 2 -->
+                            <div class="bg-gradient-to-r from-violet-primary/10 to-transparent p-6 rounded-xl border border-violet-primary/20">
+                                <div class="flex items-baseline justify-between">
+                                    <span class="text-gray-400 text-sm font-medium">Average ROAS</span>
+                                    <div class="flex items-baseline">
+                                        <span class="metric-counter count-up text-4xl font-display font-bold text-white" data-target="4.8">0.0</span>
+                                        <span class="text-white text-2xl font-bold ml-1">x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Metric 3 -->
+                            <div class="bg-gradient-to-r from-violet-primary/10 to-transparent p-6 rounded-xl border border-violet-primary/20">
+                                <div class="flex items-baseline justify-between">
+                                    <span class="text-gray-400 text-sm font-medium">CPL Reduction</span>
+                                    <div class="flex items-baseline">
+                                        <span class="text-green-400 text-2xl font-bold mr-1">↓</span>
+                                        <span class="metric-counter count-up text-4xl font-display font-bold text-white" data-target="40">0</span>
+                                        <span class="text-white text-2xl font-bold ml-1">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
     
-    <!-- PROOF SECTION -->
-    <section id="work" class="section section-dark">
-        <div class="container">
-            <h2>Real Campaigns. Real Metrics.</h2>
-            <div class="grid-3">
+    <!-- RESULTS SECTION -->
+    <section id="work" class="py-24 bg-charcoal dark:bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-white mb-16 animate-on-scroll">
+                Real Campaigns. Real Metrics.
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
                 
-                <div class="metric-block">
-                    <div class="metric-value" style="font-size: 3rem; font-family: 'Courier New', monospace;">Insurance Leads</div>
-                    <p>
-                        <strong style="font-size: 1.5rem; color: #FFD600;">1,800 niche policies sold</strong> through Meta campaigns. Direct attribution from ad to policy number.
+                <!-- Card 1: Insurance -->
+                <div class="animate-on-scroll bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-12 h-12 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-3">Insurance Leads</h3>
+                    <div class="text-3xl font-bold text-violet-primary mb-2">1,800</div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Niche policies sold through Meta campaigns. Direct attribution from ad to policy number.
                     </p>
                 </div>
                 
-                <div class="metric-block">
-                    <div class="metric-value" style="font-size: 3rem; font-family: 'Courier New', monospace;">Booking Systems</div>
-                    <p>
-                        Two booking products converted to <strong style="font-size: 1.5rem; color: #FFD600;">referral engines</strong> feeding qualified leads to partner networks.
+                <!-- Card 2: Booking Systems -->
+                <div class="animate-on-scroll bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover-lift" style="animation-delay: 0.1s;">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-12 h-12 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-3">Booking Systems</h3>
+                    <div class="text-3xl font-bold text-violet-primary mb-2">2 Products</div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Converted to referral engines feeding qualified leads to partner networks.
                     </p>
                 </div>
                 
-                <div class="metric-block">
-                    <div class="metric-value" style="font-size: 3rem; font-family: 'Courier New', monospace;">Nonprofit Growth</div>
-                    <p>
-                        <strong style="font-size: 1.5rem; color: #FFD600;">6,000 supporters registered</strong> through automated Meta funnels. Verified sign-ups, not form fills.
+                <!-- Card 3: Nonprofit -->
+                <div class="animate-on-scroll bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover-lift" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-12 h-12 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-3">Nonprofit Growth</h3>
+                    <div class="text-3xl font-bold text-violet-primary mb-2">6,000</div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Supporters registered through automated Meta funnels. Verified sign-ups, not form fills.
                     </p>
                 </div>
                 
-            </div>
-            <div class="case-study-link">
-                <a href="#contact">See More Results →</a>
             </div>
             
-            <!-- Social Proof Module -->
-            <div style="margin-top: 4rem; text-align: center;">
-                <h3 style="font-size: 1.25rem; color: #9ca3af; margin-bottom: 2rem; font-weight: 600; letter-spacing: 0.05em;">TRUSTED BY</h3>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem;">
-                    <div style="color: #d1d5db; font-size: 1.5rem; font-weight: 700; opacity: 0.8;">CIAG</div>
-                    <div style="color: #d1d5db; font-size: 1.5rem; font-weight: 700; opacity: 0.8;">Firearms Guardian</div>
-                    <div style="color: #d1d5db; font-size: 1.5rem; font-weight: 700; opacity: 0.8;">TLU SA</div>
-                    <div style="color: #d1d5db; font-size: 1.5rem; font-weight: 700; opacity: 0.8;">PretoriaFM</div>
+            <!-- Expand Button -->
+            <div class="text-center">
+                <button id="expandButton" onclick="toggleResults()" class="inline-flex items-center px-6 py-3 border-2 border-violet-primary text-violet-primary hover:bg-violet-primary hover:text-white font-semibold rounded-lg transition-all">
+                    See More Results →
+                </button>
+            </div>
+            
+            <!-- Expanded Results (Hidden by default) -->
+            <div id="expandedResults" class="results-expanded mt-12">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">E-commerce Scale</h4>
+                        <p class="text-gray-300">Scaled monthly ad spend from R50k to R250k while maintaining 3.2x ROAS for South African fashion brand.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">SaaS Lead Generation</h4>
+                        <p class="text-gray-300">Generated 450+ qualified demo bookings for B2B software platform with 28% show-up rate.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Proof / Trusted By -->
+            <div class="mt-20 animate-on-scroll">
+                <h3 class="text-sm font-semibold text-gray-500 text-center mb-8 tracking-widest uppercase">Trusted By</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">CIAG</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">Firearms Guardian</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">TLU SA</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">PretoriaFM</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- EVENT REGISTRATION SECTION -->
-    <section id="youtube" class="section section-white">
-        <div class="container">
-            <h2>Black Friday Masterclass: The Meta Ad Machine</h2>
-            <p style="text-align: center; color: #6b7280; margin-bottom: 2rem; font-size: 1.125rem;">
-                Register for the exclusive Black Friday Masterclass and learn the Meta Ad Machine system.
-            </p>
-            <div class="video-container">
-                <iframe 
-                    src="https://www.quicket.co.za/embed.aspx?productid=335955&productname=black-friday-masterclass-the-meta-ad-machine&embed=true&v=2" 
-                    title="Black Friday Masterclass Event Registration"
-                    frameborder="0" 
-                    scrolling="yes" 
-                    width="100%" 
-                    height="800">
-                </iframe>
+    <!-- BLACK FRIDAY MASTERCLASS SECTION -->
+    <section id="youtube" class="py-24 bg-white dark:bg-charcoal">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="animate-on-scroll gradient-violet p-12 rounded-2xl shadow-2xl">
+                <div class="text-center mb-8">
+                    <div class="inline-block px-4 py-2 bg-white/10 rounded-full text-sm font-semibold text-white mb-4 backdrop-blur-sm">
+                        🎯 Exclusive Black Friday Event
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                        Black Friday Masterclass:<br>The Meta Ad Machine
+                    </h2>
+                    <p class="text-xl text-gray-200 max-w-2xl mx-auto">
+                        Register for the exclusive Black Friday Masterclass and learn the Meta Ad Machine system.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.quicket.co.za/embed.aspx?productid=335955&productname=black-friday-masterclass-the-meta-ad-machine&embed=true&v=2" 
+                            title="Black Friday Masterclass Event Registration"
+                            frameborder="0" 
+                            scrolling="yes" 
+                            width="100%" 
+                            height="800"
+                            class="rounded-lg">
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- EXPERTISE SECTION -->
-    <section id="about" class="section section-white">
-        <div class="container">
-            <h2>Expertise</h2>
-            <div class="grid-3">
+    <section id="about" class="py-24 bg-gray-50 dark:bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-charcoal dark:text-white mb-4 animate-on-scroll">
+                Expertise
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16 animate-on-scroll">
+                No templates. Every system is custom-engineered from your campaign data and profit model.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
                 
-                <article class="card">
-                    <h3>Revenue Predictability</h3>
-                    <p>
+                <!-- Card 1 -->
+                <article class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover-lift">
+                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
+                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
+                        Revenue Predictability
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                         Full-funnel Meta frameworks that make profit visible, measurable, and scalable. You know what's working before you scale it.
                     </p>
                 </article>
                 
-                <article class="card">
-                    <h3>Sales Team Leverage</h3>
-                    <p>
+                <!-- Card 2 -->
+                <article class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover-lift" style="animation-delay: 0.1s;">
+                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
+                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
+                        Sales Team Leverage
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                         Automated lead qualification and follow-up systems that multiply your team's capacity without hiring. Built on n8n, Supabase, and Meta integrations.
                     </p>
                 </article>
                 
-                <article class="card">
-                    <h3>Operational Scale</h3>
-                    <p>
+                <!-- Card 3 -->
+                <article class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover-lift" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
+                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
+                        Operational Scale
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                         Reporting and automation pipelines proven at 20-agent call center scale. Systems that handle volume without breaking.
                     </p>
                 </article>
                 
             </div>
-            <p class="expertise-note">
-                No templates. Every system is custom-engineered from your campaign data and profit model.
-            </p>
         </div>
     </section>
     
     <!-- PHILOSOPHY SECTION -->
-    <section class="section section-white">
-        <div class="container">
-            <h2>Philosophy</h2>
-            <div class="philosophy-quotes">
-                <blockquote>
-                    Most agencies promise leads. I deliver profit. The difference: I engineer Meta systems that track every rand from ad spend to closed sale, then optimize for revenue — not vanity metrics. When other agencies chase more traffic, I build tighter control. That's how R12.4M gets delivered, not projected.
-                </blockquote>
+    <section class="py-24 bg-charcoal dark:bg-black relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-primary/5 to-transparent"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-white mb-12 animate-on-scroll">
+                Philosophy
+            </h2>
+            <blockquote class="animate-on-scroll text-2xl sm:text-3xl font-serif text-gray-300 italic leading-relaxed text-center">
+                "Most agencies promise leads. I deliver profit. The difference: I engineer Meta systems that track every rand from ad spend to closed sale, then optimize for revenue — not vanity metrics. When other agencies chase more traffic, I build tighter control. That's how R12.4M gets delivered, not projected."
+            </blockquote>
+            <div class="text-center mt-8">
+                <p class="text-violet-primary font-semibold text-lg">— Franz Badenhorst</p>
             </div>
         </div>
     </section>
     
     <!-- CONTACT SECTION -->
-    <section id="contact" class="section section-purple">
-        <div class="container cta-section">
-            <h2>Stop Bleeding Ad Budget Without Revenue Accountability</h2>
-            <p class="subtitle">
+    <section id="contact" class="py-24 gradient-violet relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-transparent"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-white mb-6 animate-on-scroll">
+                Stop Bleeding Ad Budget Without Revenue Accountability
+            </h2>
+            <p class="text-xl text-gray-200 mb-12 animate-on-scroll max-w-2xl mx-auto">
                 If you're ready to stop guessing and start tracking measurable profit from Meta — let's talk.
             </p>
-            <div class="button-group">
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8 animate-on-scroll">
                 <a href="https://wa.me/27621779799" 
-                   class="btn"
                    target="_blank"
                    rel="noopener noreferrer"
-                   aria-label="Talk to Franz on WhatsApp">
+                   class="group px-8 py-4 bg-white text-violet-primary font-bold rounded-lg hover:bg-gray-100 transition-all hover:scale-105 hover:shadow-xl flex items-center gap-3">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
                     Talk to Franz — No Sales Pitch
                 </a>
+                
                 <a href="mailto:franz@sigsolutions.co.za" 
-                   class="btn"
-                   aria-label="Book a Private Ad Audit">
+                   class="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-violet-primary font-bold rounded-lg transition-all hover:scale-105 flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
                     Book a Private Ad Audit
                 </a>
             </div>
-            <p class="contact-note">
+            
+            <p class="text-lg text-gray-200 italic animate-on-scroll">
                 No pitches. Just real systems.
             </p>
         </div>
     </section>
     
     <!-- FOOTER -->
-    <footer class="section-footer">
-        <div class="container footer-content">
-            <p style="font-size: 1rem; color: #d1d5db; margin-bottom: 1.5rem; font-weight: 500;">
-                Learn the system on YouTube. Build it live in the next webinar. Perfect it 1:1 with Franz.
-            </p>
-            <p>
-                © 2025 LeadLabs™ | Built by Franz Badenhorst
-            </p>
-            <p>
-                Engineered Campaigns. Predictable Sales.
-            </p>
-            <p>
-                <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp">WhatsApp: +27 62 177 9799</a> | 
-                <a href="mailto:franz@sigsolutions.co.za" aria-label="Email contact">franz@sigsolutions.co.za</a>
-            </p>
-            <p>
-                <a href="/privacy.html">Privacy Policy</a> | 
-                <a href="/terms.html">Terms</a>
-            </p>
+    <footer class="bg-charcoal border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center space-y-4">
+                <p class="text-lg text-gray-300 font-medium">
+                    Learn the system on YouTube. Build it live in the next webinar. Perfect it 1:1 with Franz.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-400 text-sm">
+                    <span>© 2025 LeadLabs™</span>
+                    <span class="hidden sm:inline">|</span>
+                    <span>Built by Franz Badenhorst</span>
+                </div>
+                <p class="text-sm text-gray-500">
+                    Engineered Campaigns. Predictable Sales.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm pt-4">
+                    <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
+                        WhatsApp: +27 62 177 9799
+                    </a>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="mailto:franz@sigsolutions.co.za" class="text-violet-primary hover:text-violet-dark transition-colors">
+                        franz@sigsolutions.co.za
+                    </a>
+                </div>
+                <div class="flex items-center justify-center gap-4 text-sm pt-2">
+                    <a href="/privacy.html" class="text-gray-500 hover:text-violet-primary transition-colors">Privacy Policy</a>
+                    <span class="text-gray-700">|</span>
+                    <a href="/terms.html" class="text-gray-500 hover:text-violet-primary transition-colors">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/27621779799" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-float"
+       aria-label="Chat on WhatsApp">
+        <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+    
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal" onclick="if(event.target === this) closeModal('bookingModal')">
+        <div class="modal-content">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">Book Your Audit</h3>
+                    <button onclick="closeModal('bookingModal')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-3xl leading-none">
+                        &times;
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    Ready to transform your Meta advertising into a predictable revenue system? Let's connect.
+                </p>
+                <div class="space-y-4">
+                    <a href="https://wa.me/27621779799" 
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all text-center">
+                        Message on WhatsApp
+                    </a>
+                    <a href="mailto:franz@sigsolutions.co.za" 
+                       class="block w-full px-6 py-3 bg-violet-primary hover:bg-violet-dark text-white font-semibold rounded-lg transition-all text-center">
+                        Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
