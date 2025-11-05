@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useMemo, FC, useRef } from 'react';
+import HeroSectionExpert from './HeroSectionExpert';
 
 // Custom Hook for Animations
 // ===================================
@@ -146,40 +147,7 @@ const Section: FC<{ children: React.ReactNode; className?: string; id?: string }
     );
 };
 
-const Hero: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
-  const [offsetY, setOffsetY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffsetY(window.pageYOffset);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div className="relative text-white overflow-hidden min-h-screen flex items-center justify-center">
-      <div 
-        className="absolute inset-0 bg-[#4C1D95]"
-        style={{ transform: `translateY(${offsetY * 0.4}px)` }}
-      >
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#4C1D95] via-transparent to-[#1E1B4B]"></div>
-      </div>
-
-      <div className="relative z-10 text-center py-24 px-8">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-          Turn Your Meta Ads Into a<br/>
-          <span className="text-[#FACC15]">Predictable Sales System.</span>
-        </h1>
-        <p className="text-lg md:text-xl text-gray-200/90 max-w-3xl mx-auto mb-10">
-          Discover the proven framework that converts social traffic into paying clients without manual follow-ups, chaos, or guesswork.
-        </p>
-        <CtaButton onClick={scrollToForm}>Join the Free Training</CtaButton>
-      </div>
-    </div>
-  );
-};
+// Original Hero component replaced by HeroSectionExpert
 
 const PromiseSection: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
   <Section>
@@ -364,7 +332,7 @@ const App: FC = () => {
     return (
         <div className="bg-[#FAFAFA] text-[#111827]">
             <main>
-                <Hero scrollToForm={scrollToForm} />
+                <HeroSectionExpert scrollToForm={scrollToForm} />
                 <PromiseSection scrollToForm={scrollToForm} />
                 <Authority />
                 <Proof />
