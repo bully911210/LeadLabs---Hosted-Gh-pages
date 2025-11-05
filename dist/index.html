@@ -252,7 +252,7 @@
         }
         
         .results-expanded.show {
-            max-height: 2000px;
+            max-height: none;
         }
         
         /* Video container */
@@ -290,14 +290,15 @@
             const start = 0;
             const increment = target / (duration / 16);
             let current = start;
+            const decimals = target % 1 === 0 ? 0 : 1; // Use 0 decimals for whole numbers, 1 for decimals
             
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    element.textContent = target.toFixed(1);
+                    element.textContent = target.toFixed(decimals);
                     clearInterval(timer);
                 } else {
-                    element.textContent = current.toFixed(1);
+                    element.textContent = current.toFixed(decimals);
                 }
             }, 16);
         }
