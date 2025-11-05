@@ -25,7 +25,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,10 +40,26 @@
                             dark: '#6B51E5',
                         },
                         charcoal: '#121212',
+                        'hero-dark': '#0B0B1A',
+                        'hero-purple': '#1C114F',
+                        'gradient-violet': '#7C3AED',
+                        'gradient-purple': '#9333EA',
+                        'gradient-blue': '#3B82F6',
+                        'accent-violet': '#8B5CF6',
+                        'panel-dark': '#1B1530',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Space Grotesk', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'cta-glow': '0 0 20px rgba(124, 58, 237, 0.3)',
+                        'cta-glow-hover': '0 0 30px rgba(124, 58, 237, 0.5)',
+                        'glass': '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                    },
+                    backdropBlur: {
+                        'glass': '16px',
                     },
                 }
             }
@@ -255,6 +271,36 @@
             max-height: none;
         }
         
+        /* Expert Hero Section Animations */
+        .noise-texture-hero {
+            animation: noiseMove 8s infinite linear;
+        }
+        
+        @keyframes noiseMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(10%, 10%);
+            }
+        }
+        
+        @keyframes dropIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .drop-in-arrow {
+            animation: dropIn 1s ease-out 1.2s forwards;
+            opacity: 0;
+        }
+        
         /* Video container */
         .video-container {
             position: relative;
@@ -321,6 +367,23 @@
             
             document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
             document.querySelectorAll('.metric-counter').forEach(el => observer.observe(el));
+            
+            // Mouse movement parallax effect for hero section
+            const heroSection = document.getElementById('hero');
+            const gradientOverlay = document.getElementById('hero-gradient-overlay');
+            
+            if (heroSection && gradientOverlay) {
+                heroSection.addEventListener('mousemove', function(e) {
+                    const rect = heroSection.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    
+                    const xPercent = 50 + (x * 10);
+                    const yPercent = 50 + (y * 10);
+                    
+                    gradientOverlay.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(124, 58, 237, 0.15) 0%, transparent 50%)`;
+                });
+            }
         });
         
         // Modal functions
@@ -391,78 +454,121 @@
         </div>
     </header>
     
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative min-h-screen bg-charcoal overflow-hidden">
-        <!-- Background gradient -->
-        <div class="absolute inset-0 gradient-violet-indigo opacity-10"></div>
-        <div class="absolute inset-0 bg-gradient-to-br from-violet-primary/5 via-transparent to-indigo-600/5"></div>
+    <!-- EXPERT HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden px-8 md:px-20 pt-24 pb-16" style="min-height: 90vh; background: linear-gradient(135deg, #0B0B1A 0%, #1C114F 100%);">
+        <!-- Animated gradient background overlay -->
+        <div id="hero-gradient-overlay" class="absolute inset-0 opacity-50 pointer-events-none transition-all duration-300" style="background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);"></div>
         
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Noise texture overlay -->
+        <div class="absolute inset-0 pointer-events-none noise-texture-hero" style="opacity: 0.03; background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E&quot;); background-repeat: repeat;"></div>
+        
+        <!-- Main content grid -->
+        <div class="relative z-10 max-w-7xl mx-auto" style="min-height: 75vh; display: flex; align-items: center;">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
                 
-                <!-- Left Column: Positioning -->
-                <div class="slide-in-left space-y-8">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
-                        I Don't Run Ads for You.<br>
-                        <span class="text-violet-primary">I Own Your Meta Revenue Outcomes.</span>
+                <!-- Left column: 7 columns - Copy + Authority + CTAs -->
+                <div class="lg:col-span-7 space-y-8 animate-on-scroll">
+                    <!-- Headline - Two-line with gradient on second line -->
+                    <h1 class="space-y-2">
+                        <div class="text-white font-bold leading-tight tracking-tight" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 14ch;">
+                            I Don't Run Ads.
+                        </div>
+                        <div class="font-bold leading-tight tracking-tight bg-gradient-to-r from-[#7C3AED] to-[#3B82F6] bg-clip-text text-transparent" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 14ch;">
+                            I Engineer Meta Revenue Systems.
+                        </div>
                     </h1>
                     
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        Franz Badenhorst — Strategic Revenue Partner for Meta Advertising.
+                    <!-- Subhead -->
+                    <p class="text-lg md:text-xl font-medium tracking-tight" style="color: #D1D5DB; font-family: 'Inter', sans-serif; max-width: 50ch;">
+                        For founders who demand proof, not promises.<br>
+                        I only partner where I can deliver measurable growth.
                     </p>
                     
-                    <p class="text-lg text-gray-400">
-                        I've delivered <span class="text-violet-primary font-bold">R12.4M</span> in tracked, verified revenue across South African brands. Not projected. <span class="font-semibold text-white">Delivered.</span>
-                    </p>
+                    <!-- Authority line with left border accent -->
+                    <div class="border-l-[3px] pl-3" style="border-color: #8B5CF6;">
+                        <p class="text-sm italic" style="color: rgb(156, 163, 175);">
+                            Franz Badenhorst — Strategic Revenue Engineer | SIG Solutions & LeadLabs
+                        </p>
+                    </div>
                     
+                    <!-- Proof paragraph with highlighted metrics -->
+                    <div class="text-base md:text-lg leading-relaxed" style="color: #D1D5DB; max-width: 60ch;">
+                        <span class="font-semibold" style="color: #8B5CF6;">R12.4M</span> in verified Meta revenue delivered. 
+                        <span class="font-semibold" style="color: #8B5CF6;">4.8x</span> average ROAS. 
+                        <span class="font-semibold" style="color: #8B5CF6;">40%</span> CPL reduction across South African brands.
+                    </div>
+                    
+                    <!-- CTA Block - Two stacked buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#youtube" class="px-8 py-4 bg-violet-primary hover:bg-violet-dark text-white font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-lg hover:shadow-violet-primary/50 text-center">
-                            Join the Next Live Session
-                        </a>
-                        <a href="#contact" class="px-8 py-4 border-2 border-violet-primary text-violet-primary hover:bg-violet-primary hover:text-white font-semibold rounded-lg transition-all text-center">
-                            Book Private Audit
-                        </a>
+                        <!-- Primary CTA - Gradient button -->
+                        <div class="flex flex-col">
+                            <a href="#youtube" class="group relative px-8 py-4 rounded-2xl font-semibold text-white text-center overflow-hidden transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#7C3AED]/50" style="font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%); box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);" aria-label="Join the next live session">
+                                <span class="relative z-10">Join the Next Live Session</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#9333EA] to-[#7C3AED] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                            <span class="text-xs mt-2 opacity-90" style="color: #D1D5DB;">Watch how I turn ads into revenue systems.</span>
+                        </div>
+                        
+                        <!-- Secondary CTA - Outline button -->
+                        <div class="flex flex-col">
+                            <a href="#contact" class="group px-8 py-4 rounded-2xl font-semibold text-center border bg-transparent hover:bg-[#1F1B3A] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#8B5CF6]/50" style="font-family: 'Poppins', sans-serif; color: #8B5CF6; border-color: #8B5CF6;" aria-label="Request private audit">
+                                <span>Request Private Audit</span>
+                            </a>
+                            <span class="text-xs mt-2 opacity-90" style="color: rgb(156, 163, 175);">See if your brand qualifies for partnership.</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Right Column: Metrics Card -->
-                <div class="slide-in-right">
-                    <div class="gradient-dark p-8 rounded-2xl shadow-2xl border border-gray-800 hover-lift">
-                        <h3 class="text-2xl font-display font-bold text-white mb-8 text-center">Performance Metrics</h3>
+                <!-- Right column: 5 columns - Metrics Panel (Glassmorphism) -->
+                <div class="lg:col-span-5 mt-12 lg:mt-0 animate-on-scroll">
+                    <div class="rounded-2xl p-6 backdrop-blur-lg" style="background: rgba(27, 21, 48, 0.6); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+                        <!-- Title -->
+                        <h3 class="text-xl font-semibold text-white mb-6 tracking-wide uppercase" style="font-size: 0.75rem; color: rgb(156, 163, 175); letter-spacing: 0.1em;">
+                            Verified Outcomes
+                        </h3>
                         
-                        <div class="space-y-6">
-                            <!-- Metric 1 -->
-                            <div class="bg-gradient-to-r from-violet-primary/10 to-transparent p-6 rounded-xl border border-violet-primary/20">
-                                <div class="flex items-baseline justify-between">
-                                    <span class="text-gray-400 text-sm font-medium">Revenue Delivered</span>
-                                    <div class="flex items-baseline">
-                                        <span class="text-violet-primary text-3xl font-bold">R</span>
-                                        <span class="metric-counter count-up text-4xl font-display font-bold text-white ml-1" data-target="12.4">0.0</span>
-                                        <span class="text-white text-2xl font-bold ml-1">M</span>
-                                    </div>
+                        <!-- Metrics -->
+                        <div class="flex flex-col gap-4">
+                            <!-- Revenue Delivered -->
+                            <div class="p-4 rounded-xl" style="background: rgba(139, 92, 246, 0.1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);">
+                                <div class="text-xs uppercase tracking-wider mb-2" style="color: rgb(156, 163, 175);">
+                                    Revenue Delivered
+                                </div>
+                                <div class="flex items-baseline">
+                                    <span class="metric-counter count-up text-3xl font-bold text-white" data-target="12.4">0.0</span>
+                                    <span class="text-white text-2xl font-bold ml-1">M</span>
+                                    <span class="text-white text-2xl ml-1">R</span>
+                                    <svg class="w-6 h-6 ml-2 animate-pulse" style="color: #8B5CF6; filter: drop-shadow(0 0 10px #8B5CF6);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
                                 </div>
                             </div>
                             
-                            <!-- Metric 2 -->
-                            <div class="bg-gradient-to-r from-violet-primary/10 to-transparent p-6 rounded-xl border border-violet-primary/20">
-                                <div class="flex items-baseline justify-between">
-                                    <span class="text-gray-400 text-sm font-medium">Average ROAS</span>
-                                    <div class="flex items-baseline">
-                                        <span class="metric-counter count-up text-4xl font-display font-bold text-white" data-target="4.8">0.0</span>
-                                        <span class="text-white text-2xl font-bold ml-1">x</span>
-                                    </div>
+                            <!-- Average ROAS -->
+                            <div class="p-4 rounded-xl" style="background: rgba(139, 92, 246, 0.1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);">
+                                <div class="text-xs uppercase tracking-wider mb-2" style="color: rgb(156, 163, 175);">
+                                    Average ROAS
+                                </div>
+                                <div class="flex items-baseline">
+                                    <span class="metric-counter count-up text-3xl font-bold text-white" data-target="4.8">0.0</span>
+                                    <span class="text-white text-2xl font-bold ml-1">x</span>
+                                    <svg class="w-6 h-6 ml-2" style="color: #8B5CF6; filter: drop-shadow(0 0 10px #8B5CF6); animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
                                 </div>
                             </div>
                             
-                            <!-- Metric 3 -->
-                            <div class="bg-gradient-to-r from-violet-primary/10 to-transparent p-6 rounded-xl border border-violet-primary/20">
-                                <div class="flex items-baseline justify-between">
-                                    <span class="text-gray-400 text-sm font-medium">CPL Reduction</span>
-                                    <div class="flex items-baseline">
-                                        <span class="text-green-400 text-2xl font-bold mr-1">↓</span>
-                                        <span class="metric-counter count-up text-4xl font-display font-bold text-white" data-target="40">0</span>
-                                        <span class="text-white text-2xl font-bold ml-1">%</span>
-                                    </div>
+                            <!-- CPL Reduction -->
+                            <div class="p-4 rounded-xl" style="background: rgba(139, 92, 246, 0.1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);">
+                                <div class="text-xs uppercase tracking-wider mb-2" style="color: rgb(156, 163, 175);">
+                                    CPL Reduction
+                                </div>
+                                <div class="flex items-baseline">
+                                    <svg class="w-8 h-8 mr-2 drop-in-arrow" style="color: rgb(74, 222, 128);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                    </svg>
+                                    <span class="metric-counter count-up text-3xl font-bold text-white" data-target="40">0</span>
+                                    <span class="text-white text-2xl font-bold ml-1">%</span>
                                 </div>
                             </div>
                         </div>
