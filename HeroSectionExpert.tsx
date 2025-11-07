@@ -142,7 +142,8 @@ const HeroSectionExpert: FC<HeroSectionExpertProps> = ({ scrollToForm }) => {
               }}
             >
               For founders who demand proof, not promises.
-              <br />I only partner where I can deliver measurable growth.
+              <br />
+              I only partner where I can deliver measurable growth.
             </p>
 
             {/* Authority line */}
@@ -183,20 +184,20 @@ const HeroSectionExpert: FC<HeroSectionExpertProps> = ({ scrollToForm }) => {
             >
               {/* Primary CTA - Gradient */}
               <div className="flex flex-col">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative px-8 py-4 rounded-2xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#7C3AED]/50"
+                <a
+                  href="/dfy"
+                  className="group relative px-8 py-4 rounded-2xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#7C3AED]/50 text-center block"
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     background: 'linear-gradient(135deg, #7C3AED 0%, #9333EA 100%)',
                     boxShadow: '0 0 20px rgba(124, 58, 237, 0.3)',
                   }}
-                  aria-label="Join the next live session"
+                  aria-label="Book DFY Consultation"
                   aria-describedby="cta-primary-desc"
                 >
-                  <span className="relative z-10">Join the Next Live Session</span>
+                  <span className="relative z-10">Book DFY Consultation</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#9333EA] to-[#7C3AED] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </button>
+                </a>
                 <span id="cta-primary-desc" className="text-xs text-gray-200 opacity-90 mt-2">
                   Watch how I turn ads into revenue systems.
                 </span>
@@ -204,17 +205,17 @@ const HeroSectionExpert: FC<HeroSectionExpertProps> = ({ scrollToForm }) => {
 
               {/* Secondary CTA - Outline */}
               <div className="flex flex-col">
-                <button
-                  onClick={scrollToForm}
-                  className="group px-8 py-4 rounded-2xl font-semibold text-[#8B5CF6] border border-[#8B5CF6] bg-transparent hover:bg-[#1F1B3A] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#8B5CF6]/50"
+                <a
+                  href="/dwy"
+                  className="group px-8 py-4 rounded-2xl font-semibold text-[#8B5CF6] border border-[#8B5CF6] bg-transparent hover:bg-[#1F1B3A] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#8B5CF6]/50 text-center block"
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                   }}
-                  aria-label="Request private audit"
+                  aria-label="Book DWY Strategy Call"
                   aria-describedby="cta-secondary-desc"
                 >
-                  <span>Request Private Audit</span>
-                </button>
+                  <span>Book DWY Strategy Call</span>
+                </a>
                 <span id="cta-secondary-desc" className="text-xs text-gray-400 opacity-90 mt-2">
                   See if your brand qualifies for partnership.
                 </span>
