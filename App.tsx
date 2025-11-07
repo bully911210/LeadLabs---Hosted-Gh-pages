@@ -149,7 +149,7 @@ const Section: FC<{ children: React.ReactNode; className?: string; id?: string }
 
 // Original Hero component replaced by HeroSectionExpert
 
-const PromiseSection: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
+const PromiseSection: FC = () => (
   <Section>
     <div className="text-center">
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-[#111827]">The Proven Meta-to-Sales Framework</h2>
@@ -170,8 +170,9 @@ const PromiseSection: FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => (
             </div>
         ))}
       </div>
-      <div className="mt-16">
-        <CtaButton onClick={scrollToForm}>Watch the System in Action</CtaButton>
+      <div className="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/dfy" className="bg-[#FACC15] text-[#111827] py-[14px] px-8 font-semibold rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(76,29,149,0.25)] focus:outline-none focus:ring-4 focus:ring-[#FACC15]/50 text-center block">Book DFY Consultation</a>
+        <a href="/dwy" className="bg-[#FACC15] text-[#111827] py-[14px] px-8 font-semibold rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(76,29,149,0.25)] focus:outline-none focus:ring-4 focus:ring-[#FACC15]/50 text-center block">Book DWY Strategy Call</a>
       </div>
     </div>
   </Section>
@@ -305,6 +306,20 @@ const Faq: FC = () => (
     </Section>
 );
 
+
+const FinalCta: FC = () => (
+    <Section className="bg-[#4C1D95] text-white">
+        <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Stop Guessing?</h2>
+            <p className="text-xl text-gray-200 mb-10 leading-relaxed">If you're ready to stop guessing and start tracking measurable profit from Meta — let's talk.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/dfy" className="bg-[#FACC15] text-[#111827] py-[14px] px-8 font-semibold rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(76,29,149,0.25)] focus:outline-none focus:ring-4 focus:ring-[#FACC15]/50 text-center block">Book DFY Consultation</a>
+                <a href="/dwy" className="bg-[#FACC15] text-[#111827] py-[14px] px-8 font-semibold rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(76,29,149,0.25)] focus:outline-none focus:ring-4 focus:ring-[#FACC15]/50 text-center block">Book DWY Strategy Call</a>
+            </div>
+        </div>
+    </Section>
+);
+
 const Footer: FC = () => (
     <footer className="bg-[#4C1D95] text-gray-300">
         <div className="max-w-[1200px] mx-auto py-8 px-8 text-center sm:flex sm:justify-between sm:items-center">
@@ -323,23 +338,15 @@ const Footer: FC = () => (
 // Main App Component
 // ===================================
 const App: FC = () => {
-    const formRef = useRef<HTMLElement>(null);
-
-    const scrollToForm = () => {
-        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    };
-
     return (
         <div className="bg-[#FAFAFA] text-[#111827]">
             <main>
-                <HeroSectionExpert scrollToForm={scrollToForm} />
-                <PromiseSection scrollToForm={scrollToForm} />
+                <HeroSectionExpert />
+                <PromiseSection />
                 <Authority />
                 <Proof />
-                <Offer scrollToForm={scrollToForm} />
-                <Urgency scrollToForm={scrollToForm} />
-                <RegistrationFormSection formRef={formRef} />
                 <Faq />
+                <FinalCta />
             </main>
             <Footer />
         </div>
