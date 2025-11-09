@@ -349,8 +349,8 @@ const App: FC = () => {
                 <Faq />
                 <FinalCta />
             </main>
-            <div className="border-t border-gray-200 my-8 w-full max-w-5xl mx-auto" />
             <MetaPartnerBadge />
+            <div className="h-4 bg-gradient-to-b from-gray-50 to-[#4C1D95]"></div>
             <Footer />
         </div>
     );
