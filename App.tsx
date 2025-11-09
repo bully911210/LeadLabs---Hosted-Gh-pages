@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useMemo, FC, useRef } from 'react';
 import HeroSectionExpert from './HeroSectionExpert';
+import MetaPartnerBadge from './MetaPartnerBadge';
 
 // Custom Hook for Animations
 // ===================================
@@ -348,6 +349,8 @@ const App: FC = () => {
                 <Faq />
                 <FinalCta />
             </main>
+            <div className="border-t border-gray-200 my-8 w-full max-w-5xl mx-auto" />
+            <MetaPartnerBadge />
             <Footer />
         </div>
     );
