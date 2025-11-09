@@ -260,17 +260,6 @@
             background-color: #1f1f1f;
         }
         
-        /* Results expand */
-        .results-expanded {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        
-        .results-expanded.show {
-            max-height: none;
-        }
-        
         /* Expert Hero Section Animations */
         .noise-texture-hero {
             animation: noiseMove 8s infinite linear;
@@ -395,20 +384,6 @@
             document.getElementById(modalId).classList.remove('show');
         }
         
-        // Expand results
-        function toggleResults() {
-            const expandedSection = document.getElementById('expandedResults');
-            const button = document.getElementById('expandButton');
-            
-            if (expandedSection.classList.contains('show')) {
-                expandedSection.classList.remove('show');
-                button.textContent = 'See More Results →';
-            } else {
-                expandedSection.classList.add('show');
-                button.textContent = 'Show Less ←';
-            }
-        }
-        
         // Smooth scroll with offset for sticky header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -467,67 +442,48 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
                 
                 <!-- Left column: 7 columns - Copy + Authority + CTAs -->
-                <div class="lg:col-span-7 space-y-8 animate-on-scroll">
-                    <!-- Headline - Two-line with gradient on second line -->
+                <div class="lg:col-span-7 space-y-6 animate-on-scroll">
+                    <!-- Headline - Problem-solution framing -->
                     <h1 class="space-y-2">
-                        <div class="text-white font-bold leading-tight tracking-tight" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 14ch;">
-                            I Don't Run Ads.
-                        </div>
-                        <div class="font-bold leading-tight tracking-tight bg-gradient-to-r from-[#7C3AED] to-[#3B82F6] bg-clip-text text-transparent" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 14ch;">
-                            I Engineer Meta Revenue Systems.
+                        <div class="text-white font-bold leading-tight tracking-tight" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 18ch;">
+                            Stop guessing. Start tracking measurable profit from Meta.
                         </div>
                     </h1>
                     
                     <!-- Subhead -->
                     <p class="text-lg md:text-xl font-medium tracking-tight" style="color: #D1D5DB; font-family: 'Inter', sans-serif; max-width: 50ch;">
-                        For founders who demand proof, not promises.<br>
-                        I only partner where I can deliver measurable growth.
+                        I engineer ad systems that make revenue visible, measurable, and repeatable.
                     </p>
                     
-                    <!-- Authority line with left border accent -->
-                    <div class="border-l-[3px] pl-3" style="border-color: #8B5CF6;">
-                        <p class="text-sm italic" style="color: rgb(156, 163, 175);">
-                            Franz Badenhorst — Strategic Revenue Engineer | SIG Solutions & LeadLabs
-                        </p>
-                    </div>
-                    
-                    <!-- Proof paragraph with highlighted metrics -->
-                    <div class="text-base md:text-lg leading-relaxed" style="color: #D1D5DB; max-width: 60ch;">
-                        <span class="font-semibold" style="color: #8B5CF6;">R12.4M</span> in verified Meta revenue delivered. 
-                        <span class="font-semibold" style="color: #8B5CF6;">4.8x</span> average ROAS. 
-                        <span class="font-semibold" style="color: #8B5CF6;">40%</span> CPL reduction across South African brands.
-                    </div>
-                    
-                    <!-- CTA Block - Two stacked buttons -->
+                    <!-- CTA Block - Two buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <!-- Primary CTA - Gradient button -->
-                        <div class="flex flex-col">
-                            <a href="/dfy" class="group relative px-8 py-4 rounded-2xl font-semibold text-white text-center overflow-hidden transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#7C3AED]/50" style="font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%); box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);" aria-label="Book DFY Consultation" aria-describedby="cta-primary-desc">
-                                <span class="relative z-10">Book DFY Consultation</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-[#9333EA] to-[#7C3AED] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </a>
-                            <span id="cta-primary-desc" class="text-xs mt-2 opacity-90" style="color: #D1D5DB;">Watch how I turn ads into revenue systems.</span>
-                        </div>
+                        <!-- Primary CTA -->
+                        <a href="/dfy" class="group relative px-8 py-4 rounded-2xl font-semibold text-white text-center overflow-hidden transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#7C3AED]/50" style="font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%); box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);" aria-label="Book Your Audit">
+                            <span class="relative z-10">Book Your Audit</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#9333EA] to-[#7C3AED] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </a>
                         
-                        <!-- Secondary CTA - Outline button -->
-                        <div class="flex flex-col">
-                            <a href="/dwy" class="group px-8 py-4 rounded-2xl font-semibold text-center border bg-transparent hover:bg-[#1F1B3A] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#8B5CF6]/50" style="font-family: 'Poppins', sans-serif; color: #8B5CF6; border-color: #8B5CF6;" aria-label="Book DWY Strategy Call" aria-describedby="cta-secondary-desc">
-                                <span>Book DWY Strategy Call</span>
-                            </a>
-                            <span id="cta-secondary-desc" class="text-xs mt-2 opacity-90" style="color: rgb(156, 163, 175);">See if your brand qualifies for partnership.</span>
-                        </div>
+                        <!-- Secondary CTA -->
+                        <a href="#case-studies" class="group px-8 py-4 rounded-2xl font-semibold text-center border bg-transparent hover:bg-[#1F1B3A] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#8B5CF6]/50" style="font-family: 'Poppins', sans-serif; color: #8B5CF6; border-color: #8B5CF6;" aria-label="See a Live Example">
+                            <span>See a Live Example</span>
+                        </a>
                     </div>
+                    
+                    <!-- Subtext link -->
+                    <p class="text-sm italic" style="color: rgb(156, 163, 175);">
+                        For founders who want proof, not promises.
+                    </p>
                 </div>
                 
-                <!-- Right column: 5 columns - Metrics Panel (Glassmorphism) -->
+                <!-- Right column: 5 columns - Live Metrics Panel -->
                 <div class="lg:col-span-5 mt-12 lg:mt-0 animate-on-scroll">
                     <div class="rounded-2xl p-6 backdrop-blur-lg" style="background: rgba(27, 21, 48, 0.6); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
                         <!-- Title -->
                         <h3 class="text-xl font-semibold text-white mb-6 tracking-wide uppercase" style="font-size: 0.75rem; color: rgb(156, 163, 175); letter-spacing: 0.1em;">
-                            Verified Outcomes
+                            Live Performance Metrics
                         </h3>
                         
-                        <!-- Metrics -->
+                        <!-- Metrics with live-updating counters -->
                         <div class="flex flex-col gap-4">
                             <!-- Revenue Delivered -->
                             <div class="p-4 rounded-xl" style="background: rgba(139, 92, 246, 0.1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);">
@@ -535,9 +491,9 @@
                                     Revenue Delivered
                                 </div>
                                 <div class="flex items-baseline">
-                                    <span class="metric-counter count-up text-3xl font-bold text-white" data-target="12.4">0.0</span>
-                                    <span class="text-white text-2xl font-bold ml-1">M</span>
                                     <span class="text-white text-2xl ml-1">R</span>
+                                    <span class="metric-counter count-up text-3xl font-bold text-white ml-1" data-target="12.4">0.0</span>
+                                    <span class="text-white text-2xl font-bold ml-1">M+</span>
                                     <svg class="w-6 h-6 ml-2 animate-pulse" style="color: #8B5CF6; filter: drop-shadow(0 0 10px #8B5CF6);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                     </svg>
@@ -579,150 +535,254 @@
         </div>
     </section>
     
-    <!-- RESULTS SECTION -->
-    <section id="work" class="py-24 bg-charcoal dark:bg-black">
+    <!-- PROBLEM → CONTRAST SECTION -->
+    <section id="problem" class="py-24 bg-gray-50 dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-white mb-16 animate-on-scroll">
-                Real Campaigns. Real Metrics.
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-charcoal dark:text-white mb-4 animate-on-scroll">
+                You're Here Because...
             </h2>
+            
+            <!-- Pain points grid -->
+            <div class="grid md:grid-cols-3 gap-8 mt-16 mb-12">
+                <!-- Pain point 1 -->
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center hover-lift">
+                    <div class="flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-xl mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-charcoal dark:text-white mb-3">
+                        Your team is copying leads manually.
+                    </h3>
+                </div>
+                
+                <!-- Pain point 2 -->
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center hover-lift" style="animation-delay: 0.1s;">
+                    <div class="flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-xl mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-charcoal dark:text-white mb-3">
+                        You spend on ads but can't trace real profit.
+                    </h3>
+                </div>
+                
+                <!-- Pain point 3 -->
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center hover-lift" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-xl mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-charcoal dark:text-white mb-3">
+                        Your agency reports vanity metrics, not growth.
+                    </h3>
+                </div>
+            </div>
+            
+            <!-- Solution statement -->
+            <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+                <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                    Ads are easy. Profit tracking isn't. I build systems that connect every click to a sale — and show you exactly what's working.
+                </p>
+                <a href="/dfy" class="inline-block px-8 py-4 bg-violet-primary hover:bg-violet-dark text-white font-semibold rounded-lg transition-all hover:scale-105 shadow-cta-glow hover:shadow-cta-glow-hover">
+                    Book your system audit
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CASE STUDIES SECTION -->
+    <section id="case-studies" class="py-24 bg-charcoal dark:bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-white mb-4 animate-on-scroll">
+                Real Campaigns. Measurable Results.
+            </h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16 animate-on-scroll">
+                Every number backed by verified data and real client outcomes.
+            </p>
             
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 
-                <!-- Card 1: Insurance -->
+                <!-- Case Study 1: Insurance -->
                 <div class="animate-on-scroll bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover-lift">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-12 h-12 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
+                    <!-- Brand placeholder -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-violet-primary/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <span class="ml-3 text-gray-500 text-sm font-semibold uppercase tracking-wider">Firearms Guardian</span>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Insurance Leads</h3>
-                    <div class="text-3xl font-bold text-violet-primary mb-2">1,800</div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Niche policies sold through Meta campaigns. Direct attribution from ad to policy number.
+                    
+                    <!-- Headline metric -->
+                    <h3 class="text-3xl font-display font-bold text-white mb-3">
+                        4.2x ROAS
+                    </h3>
+                    
+                    <!-- Summary -->
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        1,800 policies sold through Meta and WhatsApp automation. Full attribution from ad click to policy number.
                     </p>
+                    
+                    <!-- View link -->
+                    <button onclick="openModal('caseStudy1')" class="text-violet-primary hover:text-violet-dark font-semibold transition-colors flex items-center">
+                        View Summary
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
                 
-                <!-- Card 2: Booking Systems -->
+                <!-- Case Study 2: Nonprofit -->
                 <div class="animate-on-scroll bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover-lift" style="animation-delay: 0.1s;">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-12 h-12 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
+                    <!-- Brand placeholder -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-violet-primary/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="ml-3 text-gray-500 text-sm font-semibold uppercase tracking-wider">TLU SA / CIAG</span>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Booking Systems</h3>
-                    <div class="text-3xl font-bold text-violet-primary mb-2">2 Products</div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Converted to referral engines feeding qualified leads to partner networks.
+                    
+                    <!-- Headline metric -->
+                    <h3 class="text-3xl font-display font-bold text-white mb-3">
+                        6,000 Members
+                    </h3>
+                    
+                    <!-- Summary -->
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Supporters registered through automated Meta funnels. Verified sign-ups tracked from impression to membership.
                     </p>
+                    
+                    <!-- View link -->
+                    <button onclick="openModal('caseStudy2')" class="text-violet-primary hover:text-violet-dark font-semibold transition-colors flex items-center">
+                        View Summary
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
                 
-                <!-- Card 3: Nonprofit -->
+                <!-- Case Study 3: E-commerce -->
                 <div class="animate-on-scroll bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover-lift" style="animation-delay: 0.2s;">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-12 h-12 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+                    <!-- Brand placeholder -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-violet-primary/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                        </div>
+                        <span class="ml-3 text-gray-500 text-sm font-semibold uppercase tracking-wider">E-Commerce</span>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Nonprofit Growth</h3>
-                    <div class="text-3xl font-bold text-violet-primary mb-2">6,000</div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Supporters registered through automated Meta funnels. Verified sign-ups, not form fills.
+                    
+                    <!-- Headline metric -->
+                    <h3 class="text-3xl font-display font-bold text-white mb-3">
+                        3.2x ROAS
+                    </h3>
+                    
+                    <!-- Summary -->
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Scaled from R50k to R250k monthly ad spend while maintaining profitability. Revenue tracking from ad to checkout.
                     </p>
+                    
+                    <!-- View link -->
+                    <button onclick="openModal('caseStudy3')" class="text-violet-primary hover:text-violet-dark font-semibold transition-colors flex items-center">
+                        View Summary
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
                 
-            </div>
-            
-            <!-- Expand Button -->
-            <div class="text-center">
-                <button id="expandButton" onclick="toggleResults()" class="inline-flex items-center px-6 py-3 border-2 border-violet-primary text-violet-primary hover:bg-violet-primary hover:text-white font-semibold rounded-lg transition-all">
-                    See More Results →
-                </button>
-            </div>
-            
-            <!-- Expanded Results (Hidden by default) -->
-            <div id="expandedResults" class="results-expanded mt-12">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700">
-                        <h4 class="text-xl font-bold text-white mb-3">E-commerce Scale</h4>
-                        <p class="text-gray-300">Scaled monthly ad spend from R50k to R250k while maintaining 3.2x ROAS for South African fashion brand.</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700">
-                        <h4 class="text-xl font-bold text-white mb-3">SaaS Lead Generation</h4>
-                        <p class="text-gray-300">Generated 450+ qualified demo bookings for B2B software platform with 28% show-up rate.</p>
-                    </div>
-                </div>
             </div>
             
             <!-- Social Proof / Trusted By -->
             <div class="mt-20 animate-on-scroll">
                 <h3 class="text-sm font-semibold text-gray-500 text-center mb-8 tracking-widest uppercase">Trusted By</h3>
                 <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">CIAG</div>
-                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">Firearms Guardian</div>
-                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">TLU SA</div>
-                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default">PretoriaFM</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default animate-on-scroll">CIAG</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default animate-on-scroll" style="animation-delay: 0.15s;">Firearms Guardian</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default animate-on-scroll" style="animation-delay: 0.3s;">TLU SA</div>
+                    <div class="text-2xl font-bold text-gray-600 dark:text-gray-700 hover:text-violet-primary transition-colors cursor-default animate-on-scroll" style="animation-delay: 0.45s;">PretoriaFM</div>
                 </div>
+                <p class="text-center text-gray-400 mt-6 text-sm animate-on-scroll">
+                    Trusted by South Africa's leading advocacy, insurance, and membership organisations.
+                </p>
             </div>
         </div>
     </section>
     
-    
-    <!-- EXPERTISE SECTION -->
-    <section id="about" class="py-24 bg-gray-50 dark:bg-black">
+    <!-- PROCESS SECTION -->
+    <section id="process" class="py-24 bg-gray-50 dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-charcoal dark:text-white mb-4 animate-on-scroll">
-                Expertise
+                How We Engineer Predictable Revenue
             </h2>
             <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16 animate-on-scroll">
-                No templates. Every system is custom-engineered from your campaign data and profit model.
+                A proven three-step system to transform ad spend into measurable profit.
             </p>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Progress indicator -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="relative">
+                    <!-- Progress bar background -->
+                    <div class="absolute top-8 left-0 right-0 h-1 bg-gray-300 dark:bg-gray-700"></div>
+                    <!-- Animated progress bar -->
+                    <div class="absolute top-8 left-0 h-1 bg-violet-primary animate-on-scroll" style="width: 100%; animation-duration: 2s;"></div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 md:gap-12 mt-8">
                 
-                <!-- Card 1 -->
-                <article class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover-lift">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                <!-- Step 1: Audit -->
+                <div class="animate-on-scroll text-center">
+                    <div class="flex items-center justify-center w-20 h-20 bg-violet-primary rounded-xl mb-6 mx-auto">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Revenue Predictability
+                        1. Audit
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Full-funnel Meta frameworks that make profit visible, measurable, and scalable. You know what's working before you scale it.
+                        Identify leaks and measure true ROI. We analyze every touchpoint from ad click to conversion to find what's bleeding budget.
                     </p>
-                </article>
+                </div>
                 
-                <!-- Card 2 -->
-                <article class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover-lift" style="animation-delay: 0.1s;">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <!-- Step 2: Rebuild -->
+                <div class="animate-on-scroll text-center" style="animation-delay: 0.1s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-violet-primary rounded-xl mb-6 mx-auto">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Sales Team Leverage
+                        2. Rebuild
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Automated lead qualification and follow-up systems that multiply your team's capacity without hiring. Built on n8n, Supabase, and Meta integrations.
+                        Rewire Meta + automation flow to close data gaps. We engineer systems that connect every ad dollar to actual revenue.
                     </p>
-                </article>
+                </div>
                 
-                <!-- Card 3 -->
-                <article class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover-lift" style="animation-delay: 0.2s;">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                <!-- Step 3: Scale -->
+                <div class="animate-on-scroll text-center" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-violet-primary rounded-xl mb-6 mx-auto">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Operational Scale
+                        3. Scale
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Reporting and automation pipelines proven at 20-agent call center scale. Systems that handle volume without breaking.
+                        Track real profit per campaign before scaling. When you know exactly what works, scaling stops feeling risky.
                     </p>
-                </article>
+                </div>
                 
             </div>
         </div>
@@ -733,48 +793,52 @@
         <div class="absolute inset-0 bg-gradient-to-br from-violet-primary/5 to-transparent"></div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-white mb-12 animate-on-scroll">
-                Philosophy
+                My Philosophy
             </h2>
-            <blockquote class="animate-on-scroll text-2xl sm:text-3xl font-serif text-gray-300 italic leading-relaxed text-center">
-                "Most agencies promise leads. I deliver profit. The difference: I engineer Meta systems that track every rand from ad spend to closed sale, then optimize for revenue — not vanity metrics. When other agencies chase more traffic, I build tighter control. That's how R12.4M gets delivered, not projected."
+            <blockquote class="animate-on-scroll text-2xl sm:text-3xl font-serif text-gray-200 italic leading-relaxed text-center">
+                "I don't sell traffic. I sell clarity.<br><br>
+                When you can see exactly where your profit comes from, scaling stops feeling risky — and starts feeling inevitable."
             </blockquote>
             <div class="text-center mt-8">
                 <p class="text-violet-primary font-semibold text-lg">— Franz Badenhorst</p>
+                <p class="text-gray-400 text-sm mt-2">Strategic Revenue Partner for Meta Advertising</p>
             </div>
         </div>
     </section>
     
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 gradient-violet relative overflow-hidden">
+    <!-- HIGH-CONTRAST CTA SECTION -->
+    <section id="contact" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0B0B1A 0%, #1C114F 100%);">
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-transparent"></div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl sm:text-5xl font-display font-bold text-white mb-6 animate-on-scroll">
-                Stop Bleeding Ad Budget Without Revenue Accountability
+                If you're ready to stop bleeding ad budget and start tracking measurable profit — let's talk.
             </h2>
             <p class="text-xl text-gray-200 mb-12 animate-on-scroll max-w-2xl mx-auto">
-                If you're ready to stop guessing and start tracking measurable profit from Meta — let's talk.
+                No pitches. No fluff. Just engineered systems that make revenue visible.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8 animate-on-scroll">
-                <a href="/dfy" 
+                <a href="https://wa.me/27621779799" 
+                   target="_blank"
+                   rel="noopener noreferrer"
                    class="group px-8 py-4 bg-white text-violet-primary font-bold rounded-lg hover:bg-gray-100 transition-all hover:scale-105 hover:shadow-xl flex items-center gap-3">
-                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
-                    Book DFY Consultation
+                    Let's Build Your System
                 </a>
                 
-                <a href="/dwy" 
+                <a href="/dfy" 
                    class="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-violet-primary font-bold rounded-lg transition-all hover:scale-105 flex items-center gap-3">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
-                    Book DWY Strategy Call
+                    See How It Works
                 </a>
             </div>
             
-            <p class="text-lg text-gray-200 italic animate-on-scroll">
-                No pitches. Just real systems.
+            <p class="text-sm text-gray-400 italic animate-on-scroll">
+                WhatsApp: +27 62 177 9799 | Email: franz@sigsolutions.co.za
             </p>
         </div>
     </section>
@@ -783,16 +847,11 @@
     <footer class="bg-charcoal border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center space-y-4">
-                <p class="text-lg text-gray-300 font-medium">
-                    If you're ready to stop guessing and start tracking measurable profit from Meta — let's talk.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-400 text-sm">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-300 text-sm">
                     <span>© 2025 LeadLabs™</span>
-                    <span class="hidden sm:inline">|</span>
-                    <span>Built by Franz Badenhorst</span>
                 </div>
-                <p class="text-sm text-gray-500">
-                    Engineered Campaigns. Predictable Sales.
+                <p class="text-sm text-gray-400">
+                    Built by Franz Badenhorst — Real Ads. Real Metrics. Real Revenue.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm pt-4">
                     <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
@@ -801,6 +860,10 @@
                     <span class="hidden sm:inline text-gray-700">|</span>
                     <a href="mailto:franz@sigsolutions.co.za" class="text-violet-primary hover:text-violet-dark transition-colors">
                         franz@sigsolutions.co.za
+                    </a>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="https://leadlabs.co.za" class="text-violet-primary hover:text-violet-dark transition-colors">
+                        leadlabs.co.za
                     </a>
                 </div>
                 <div class="flex items-center justify-center gap-4 text-sm pt-2">
@@ -822,6 +885,97 @@
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
+    
+    <!-- Case Study Modals -->
+    <div id="caseStudy1" class="modal" onclick="if(event.target === this) closeModal('caseStudy1')">
+        <div class="modal-content">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">Firearms Guardian — Insurance</h3>
+                    <button onclick="closeModal('caseStudy1')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-3xl leading-none">
+                        &times;
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <div class="text-4xl font-bold text-violet-primary mb-2">4.2x ROAS</div>
+                    <div class="text-gray-600 dark:text-gray-400">1,800 policies sold</div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                    Engineered complete Meta-to-sale system for niche insurance policies. Built automated WhatsApp integration that tracked every lead from initial ad impression through policy sign-up.
+                </p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold text-charcoal dark:text-white mb-2">Key Results:</h4>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                        <li>Direct attribution from ad to policy number</li>
+                        <li>Automated lead qualification via WhatsApp</li>
+                        <li>42% conversion rate from qualified lead to sale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="caseStudy2" class="modal" onclick="if(event.target === this) closeModal('caseStudy2')">
+        <div class="modal-content">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">TLU SA / CIAG — Nonprofit</h3>
+                    <button onclick="closeModal('caseStudy2')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-3xl leading-none">
+                        &times;
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <div class="text-4xl font-bold text-violet-primary mb-2">6,000 Members</div>
+                    <div class="text-gray-600 dark:text-gray-400">Verified sign-ups</div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                    Built automated Meta funnels for advocacy and membership organizations. Every supporter registration tracked from initial ad impression through completed membership sign-up.
+                </p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold text-charcoal dark:text-white mb-2">Key Results:</h4>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                        <li>Automated lead nurturing and follow-up</li>
+                        <li>Integration with membership databases</li>
+                        <li>68% reduction in manual data entry</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="caseStudy3" class="modal" onclick="if(event.target === this) closeModal('caseStudy3')">
+        <div class="modal-content">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">E-Commerce Scale</h3>
+                    <button onclick="closeModal('caseStudy3')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-3xl leading-none">
+                        &times;
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <div class="text-4xl font-bold text-violet-primary mb-2">3.2x ROAS</div>
+                    <div class="text-gray-600 dark:text-gray-400">R50k → R250k monthly spend</div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                    Scaled monthly ad spend 5x while maintaining profitability for South African fashion brand. Full revenue tracking from ad click to checkout completion.
+                </p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold text-charcoal dark:text-white mb-2">Key Results:</h4>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                        <li>Maintained 3.2x ROAS during scale</li>
+                        <li>Complete pixel and conversion API setup</li>
+                        <li>Automated abandoned cart recovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Booking Modal -->
     <div id="bookingModal" class="modal" onclick="if(event.target === this) closeModal('bookingModal')">
