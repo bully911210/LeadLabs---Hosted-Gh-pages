@@ -167,6 +167,18 @@ input, textarea, select {
   color: var(--accent);
 }
 
+.btn--facebook {
+  background: #1877F2;
+  color: white;
+  border: 1px solid #1877F2;
+}
+
+.btn--facebook:hover {
+  background: #0C63D4;
+  border-color: #0C63D4;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+}
+
 .btn--whatsapp {
   background: #25D366;
   color: white;
@@ -381,6 +393,17 @@ input, textarea, select {
 .hero {
   padding: var(--spacing-8) var(--spacing-2) var(--spacing-6);
   text-align: center;
+}
+
+.hero__logo {
+  display: inline-block;
+  margin-bottom: var(--spacing-3);
+}
+
+.hero__logo img {
+  height: 48px;
+  width: auto;
+  opacity: 0.9;
 }
 
 .hero__title {
