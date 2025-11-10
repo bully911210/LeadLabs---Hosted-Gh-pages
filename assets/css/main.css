@@ -727,6 +727,33 @@ input, textarea, select {
   text-align: center;
   background: var(--bg);
   overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fade effect on left and right edges */
+.client-carousel::before,
+.client-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.client-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.client-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
 }
 
 .client-carousel .kicker {
@@ -744,6 +771,8 @@ input, textarea, select {
   gap: 48px;
   width: max-content;
   animation: scroll-left 40s linear infinite;
+  transform: scale(1.5);
+  transform-origin: center;
 }
 
 .carousel-track:hover {
@@ -786,8 +815,14 @@ input, textarea, select {
     padding: var(--spacing-4) 0 var(--spacing-3);
   }
   
+  .client-carousel::before,
+  .client-carousel::after {
+    width: 80px;
+  }
+  
   .carousel-track {
     gap: 24px;
+    transform: scale(1.3);
   }
   
   .carousel-track img {
