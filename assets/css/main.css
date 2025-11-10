@@ -168,14 +168,15 @@ input, textarea, select {
 }
 
 .btn--facebook {
-  background: #1877F2;
-  color: white;
+  background: white;
+  color: #1877F2;
   border: 1px solid #1877F2;
 }
 
 .btn--facebook:hover {
-  background: #0C63D4;
+  background: #f0f0f0;
   border-color: #0C63D4;
+  color: #0C63D4;
   box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
 }
 
@@ -771,7 +772,7 @@ input, textarea, select {
   gap: 48px;
   width: max-content;
   animation: scroll-left 40s linear infinite;
-  transform: scale(1.875);
+  transform: scale(1.5);
   transform-origin: center;
 }
 
