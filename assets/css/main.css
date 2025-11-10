@@ -731,7 +731,6 @@ input, textarea, select {
   height: 46px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%);
   opacity: 0.75;
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
@@ -740,14 +739,13 @@ input, textarea, select {
   opacity: 1;
 }
 
-/* Keep only SIG Solutions and Acorn Brokers in color */
+/* Make only SIG Solutions and Acorn Brokers white */
 .carousel-track img.logo-white {
-  filter: none;
+  filter: grayscale(100%) brightness(0) invert(1);
 }
 
 .carousel-track img.logo-white:hover {
-  filter: none;
-  opacity: 1;
+  filter: grayscale(0%) brightness(1) invert(1);
 }
 
 @keyframes scroll-left {
