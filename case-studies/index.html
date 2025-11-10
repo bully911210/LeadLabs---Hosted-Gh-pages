@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeadLabs - Every click accounted for</title>
-  <meta name="description" content="Systems that turn Meta spend into verified recurring revenue. No vanity numbers.">
+  <title>Proof - LeadLabs Case Studies</title>
+  <meta name="description" content="Real campaigns. Measurable results. See how LeadLabs turns Meta spend into verified recurring revenue.">
   
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +15,9 @@
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://leadlabs.co.za/">
-  <meta property="og:title" content="LeadLabs - Every click accounted for">
-  <meta property="og:description" content="Systems that turn Meta spend into verified recurring revenue. No vanity numbers.">
+  <meta property="og:url" content="https://leadlabs.co.za/case-studies/">
+  <meta property="og:title" content="Proof - LeadLabs Case Studies">
+  <meta property="og:description" content="Real campaigns. Measurable results. See how LeadLabs turns Meta spend into verified recurring revenue.">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -31,13 +31,7 @@
       --muted: #8b8f99;
       --accent: #7c4dff;
       --border: rgba(255, 255, 255, 0.08);
-      --ok: #1fd285;
       --font-base: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --spacing-2: 16px;
-      --spacing-4: 32px;
-      --spacing-6: 48px;
-      --spacing-8: 64px;
-      --max-width: 1200px;
     }
     *, *::before, *::after {
       box-sizing: border-box;
@@ -47,7 +41,6 @@
     html {
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
     body {
       font-family: var(--font-base);
@@ -55,30 +48,10 @@
       color: var(--text);
       line-height: 1.6;
     }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-    }
   </style>
   
-  <!-- Main CSS (deferred) -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="/assets/css/main.css">
-  
-  <!-- JSON-LD Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "LeadLabs",
-    "url": "https://leadlabs.co.za",
-    "sameAs": [
-      "https://wa.me/27621779799"
-    ]
-  }
-  </script>
 </head>
 <body>
   
@@ -93,65 +66,23 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Header -->
+  <section class="section">
     <div class="container">
-      <h1 class="hero__title">Every click accounted for.</h1>
-      <p class="hero__subtitle">Systems that turn Meta spend into verified recurring revenue. No vanity numbers.</p>
-      <div class="hero__actions">
-        <a href="/audit/" class="btn btn--primary" aria-label="Book your system audit">Book Your System Audit</a>
-        <a href="/case-studies/" class="btn btn--ghost" aria-label="See proof of results">See Proof</a>
-      </div>
-      
-      <!-- Stats Row -->
-      <div class="stats container">
-        <div class="stat">
-          <div class="stat__value">R500K+</div>
-          <div class="stat__label">Ad spend managed</div>
-        </div>
-        <div class="stat">
-          <div class="stat__value">396K+</div>
-          <div class="stat__label">Clicks generated</div>
-        </div>
-        <div class="stat">
-          <div class="stat__value">83K+</div>
-          <div class="stat__label">Leads captured</div>
-        </div>
-        <div class="stat">
-          <div class="stat__value">6,500+</div>
-          <div class="stat__label">Recurring sales</div>
-        </div>
-      </div>
+      <h1 class="section__title">Proof</h1>
+      <p class="section__subtitle">Real campaigns. Verified results. No vanity metrics.</p>
     </div>
   </section>
 
-  <!-- Value Prop Strip -->
-  <section class="section">
-    <div class="container value-prop">
-      <div class="value-prop__item">
-        <h2 class="value-prop__title">Single source of truth</h2>
-        <p class="value-prop__text">Connect ads, CRM, and payments to one reality.</p>
-      </div>
-      <div class="value-prop__item">
-        <h2 class="value-prop__title">Verified attribution</h2>
-        <p class="value-prop__text">Tie every click to a sale and every sale to revenue.</p>
-      </div>
-      <div class="value-prop__item">
-        <h2 class="value-prop__title">Scale with certainty</h2>
-        <p class="value-prop__text">Decisions backed by live performance data.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proof Grid -->
+  <!-- Case Studies Grid -->
   <section class="section">
     <div class="container">
-      <h2 class="section__title">Proof</h2>
-      <p class="section__subtitle">Real campaigns. Measurable results.</p>
-      
       <div class="grid grid--3">
+        
+        <!-- DefendSure -->
         <article class="proof-card">
-          <h3 class="proof-card__client">DefendSure</h3>
+          <span class="badge">Insurance</span>
+          <h2 class="proof-card__client" style="margin-top: 16px;">DefendSure</h2>
           <div class="proof-card__row">
             <div class="proof-card__label">Problem</div>
             <div class="proof-card__value">No way to track ad spend to actual policies sold</div>
@@ -172,8 +103,10 @@
           </a>
         </article>
 
+        <!-- AgriFront -->
         <article class="proof-card">
-          <h3 class="proof-card__client">AgriFront</h3>
+          <span class="badge">Advocacy</span>
+          <h2 class="proof-card__client" style="margin-top: 16px;">AgriFront</h2>
           <div class="proof-card__row">
             <div class="proof-card__label">Problem</div>
             <div class="proof-card__value">Manual data entry killing conversion rate</div>
@@ -194,8 +127,10 @@
           </a>
         </article>
 
+        <!-- E-Commerce -->
         <article class="proof-card">
-          <h3 class="proof-card__client">E-Commerce</h3>
+          <span class="badge">E-Commerce</span>
+          <h2 class="proof-card__client" style="margin-top: 16px;">E-Commerce</h2>
           <div class="proof-card__row">
             <div class="proof-card__label">Problem</div>
             <div class="proof-card__value">Scaling ad spend felt like gambling</div>
@@ -215,54 +150,12 @@
             </svg>
           </a>
         </article>
-      </div>
-      
-      <div style="text-align: center; margin-top: 48px;">
-        <a href="/case-studies/" class="btn btn--ghost">See all proof</a>
+        
       </div>
     </div>
   </section>
 
-  <!-- Revenue System (3 Steps) -->
-  <section class="section" style="background: var(--surface);">
-    <div class="container">
-      <h2 class="section__title">Revenue System</h2>
-      <p class="section__subtitle">Three steps to verified recurring revenue</p>
-      
-      <div style="max-width: 800px; margin: 0 auto;">
-        <div class="step">
-          <div class="step__number">Step 1.</div>
-          <h3 class="step__title">Sync</h3>
-          <p class="step__text">Integrate Meta, CRM, and payments. Remove blind spots.</p>
-        </div>
-        <div class="step">
-          <div class="step__number">Step 2.</div>
-          <h3 class="step__title">Track</h3>
-          <p class="step__text">Map leads to sales with clean, verifiable data.</p>
-        </div>
-        <div class="step">
-          <div class="step__number">Step 3.</div>
-          <h3 class="step__title">Optimize</h3>
-          <p class="step__text">Scale the campaigns that drive recurring revenue.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trust Row -->
-  <section class="trust">
-    <div class="container">
-      <div class="trust__label">Recognised for ad system performance</div>
-      <div class="trust__logos">
-        <span class="trust__logo">DefendSure</span>
-        <span class="trust__logo">AgriFront</span>
-        <span class="trust__logo">Frontline South</span>
-        <span class="trust__logo">StadKlank</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Strip -->
+  <!-- CTA -->
   <section class="cta-strip">
     <div class="container">
       <h2 class="cta-strip__title">Ready to see the truth in your numbers</h2>

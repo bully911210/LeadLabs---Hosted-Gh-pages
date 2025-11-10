@@ -1,188 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DefendSure Case Study | Franz Badenhorst - LeadLabs™</title>
-    <meta name="description" content="4.2x ROAS and 1,800 policies sold through Meta and WhatsApp automation. Full attribution from ad click to policy number.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        violet: {
-                            primary: '#7B61FF',
-                            dark: '#6B51E5',
-                        },
-                        charcoal: '#121212',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DefendSure Case Study - LeadLabs</title>
+  <meta name="description" content="1,800 policies sold at 4.2x ROAS through Meta to WhatsApp automation with full attribution.">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Inter font with system fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Critical CSS inline -->
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --surface: #121316;
+      --text: #f6f7fb;
+      --muted: #8b8f99;
+      --accent: #7c4dff;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-base: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      font-family: var(--font-base);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+  </style>
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
-<body class="antialiased bg-white dark:bg-charcoal transition-colors duration-300">
-    
-    <!-- STICKY HEADER -->
-    <header class="sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-charcoal/90 border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center">
-                        <img src="https://i.ibb.co/Kp4zs0W9/upscalemedia-transformed-2.png" alt="LeadLabs™" class="h-10 w-auto" />
-                    </a>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
-                    <a href="/#case-studies" class="text-gray-300 hover:text-white transition-colors">Case Studies</a>
-                </div>
-            </div>
+<body>
+  
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="LeadLabs home">LeadLabs™</a>
+      <div class="nav__menu">
+        <a href="/case-studies/" class="nav__link">Case Studies</a>
+        <a href="/audit/" class="btn btn--primary">Book Your System Audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Case Study -->
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      
+      <!-- Back Link -->
+      <a href="/case-studies/" class="nav__link" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        All case studies
+      </a>
+
+      <!-- Title -->
+      <h1 class="section__title" style="text-align: left; margin-bottom: 48px;">DefendSure</h1>
+
+      <!-- Problem, System, Result -->
+      <div class="stack" style="gap: 24px; margin-bottom: 48px;">
+        <div>
+          <div class="kicker" style="margin-bottom: 8px;">Problem</div>
+          <p style="font-size: 18px; color: var(--text);">No way to track ad spend to actual policies sold</p>
         </div>
-    </header>
-    
-    <!-- HERO SECTION -->
-    <section class="relative overflow-hidden px-8 md:px-20 py-24 bg-gradient-to-br from-[#0B0B1A] to-[#1C114F]">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="text-xs font-semibold text-violet-primary mb-4 tracking-widest uppercase">Case Study / Insurance</div>
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                DefendSure
-            </h1>
-            <div class="text-4xl font-bold text-white mb-8">
-                4.2x ROAS
-            </div>
-            <p class="text-xl text-gray-200 max-w-3xl">
-                1,800 policies sold through Meta and WhatsApp automation. Full attribution from ad click to policy number.
-            </p>
+        <div>
+          <div class="kicker" style="margin-bottom: 8px;">System</div>
+          <p style="font-size: 18px; color: var(--text);">Meta to WhatsApp automation with full attribution</p>
         </div>
-    </section>
-    
-    <!-- OVERVIEW SECTION -->
-    <section class="py-24 bg-white dark:bg-black">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display font-bold text-charcoal dark:text-white mb-8">
-                The Challenge
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-12">
-                DefendSure needed a way to sell insurance policies online without manual lead entry and unclear attribution. Traditional insurance sales required extensive manual follow-up, and it was impossible to track which ads actually led to policy purchases.
-            </p>
-            
-            <h2 class="text-4xl font-display font-bold text-charcoal dark:text-white mb-8">
-                The Solution
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                We engineered a complete Meta-to-sale system with automated WhatsApp integration. Every lead was tracked from initial ad impression through policy sign-up, with automated qualification and follow-up flows.
-            </p>
-            
-            <div class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-purple-200 dark:border-gray-700 mb-12">
-                <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-6">
-                    Key Results
-                </h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-violet-primary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-gray-700 dark:text-gray-300"><strong>Direct attribution</strong> from ad to policy number</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-violet-primary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-gray-700 dark:text-gray-300"><strong>Automated lead qualification</strong> via WhatsApp</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-violet-primary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-gray-700 dark:text-gray-300"><strong>42% conversion rate</strong> from qualified lead to sale</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-violet-primary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-gray-700 dark:text-gray-300"><strong>1,800 policies sold</strong> with full tracking</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <h2 class="text-4xl font-display font-bold text-charcoal dark:text-white mb-8">
-                The Impact
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-12">
-                DefendSure now has complete visibility into their advertising ROI. They know exactly which campaigns, creatives, and audiences drive actual policy sales — not just leads. This allowed them to scale confidently from R50k to R180k monthly ad spend while maintaining profitability.
-            </p>
+        <div>
+          <div class="kicker" style="margin-bottom: 8px;">Result</div>
+          <p style="font-size: 18px; color: var(--text);"><strong style="font-family: var(--font-mono);">1,800 policies</strong> sold at <strong style="font-family: var(--font-mono);">4.2x ROAS</strong></p>
         </div>
-    </section>
-    
-    <!-- CTA SECTION -->
-    <section class="py-24 bg-gradient-to-br from-[#0B0B1A] to-[#1C114F]">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-display font-bold text-white mb-6">
-                Want Similar Results?
-            </h2>
-            <p class="text-xl text-gray-200 mb-10">
-                Let's build a system that tracks your revenue from ad to sale.
-            </p>
-            <a href="/contact" class="inline-flex items-center gap-3 px-10 py-5 bg-white text-violet-primary text-lg font-bold rounded-xl transition-all hover:scale-105 hover:shadow-2xl">
-                Let's Talk
-            </a>
-        </div>
-    </section>
-    
-    <!-- FOOTER -->
-    <footer class="bg-charcoal border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="text-center space-y-4">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-300 text-sm">
-                    <span>© 2025 LeadLabs™</span>
-                </div>
-                <p class="text-sm text-gray-400">
-                    Built by Franz Badenhorst — Real Ads. Real Metrics. Real Revenue.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm pt-4">
-                    <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
-                        WhatsApp: +27 62 177 9799
-                    </a>
-                    <span class="hidden sm:inline text-gray-700">|</span>
-                    <a href="mailto:franz@sigsolutions.co.za" class="text-violet-primary hover:text-violet-dark transition-colors">
-                        franz@sigsolutions.co.za
-                    </a>
-                    <span class="hidden sm:inline text-gray-700">|</span>
-                    <a href="https://leadlabs.co.za" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
-                        leadlabs.co.za
-                    </a>
-                </div>
-                <div class="flex items-center justify-center gap-4 text-sm pt-2">
-                    <a href="/privacy.html" class="text-gray-500 hover:text-violet-primary transition-colors">Privacy Policy</a>
-                    <span class="text-gray-700">|</span>
-                    <a href="/terms.html" class="text-gray-500 hover:text-violet-primary transition-colors">Terms</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
+      </div>
+
+      <!-- Metrics Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Before</th>
+            <th>After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ROAS</td>
+            <td>1.8x</td>
+            <td>4.2x</td>
+          </tr>
+          <tr>
+            <td>Policies/month</td>
+            <td>240</td>
+            <td>1,800</td>
+          </tr>
+          <tr>
+            <td>Attribution accuracy</td>
+            <td>30%</td>
+            <td>98%</td>
+          </tr>
+          <tr>
+            <td>Manual data entry</td>
+            <td>8 hrs/day</td>
+            <td>0 hrs/day</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Back Link -->
+      <div style="margin-top: 64px;">
+        <a href="/case-studies/" class="nav__link" style="display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          All case studies
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2 class="cta-strip__title">Ready to see the truth in your numbers</h2>
+      <a href="/audit/" class="btn btn--primary">Book Your System Audit</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">Built by Franz Badenhorst. Real ads. Real metrics. Real revenue.</p>
+      <div class="footer__links">
+        <a href="/privacy.html" class="footer__link">Privacy</a>
+        <span style="color: var(--muted);">·</span>
+        <a href="/terms.html" class="footer__link">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+
 </body>
 </html>
