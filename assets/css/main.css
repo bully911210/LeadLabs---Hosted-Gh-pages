@@ -167,6 +167,18 @@ input, textarea, select {
   color: var(--accent);
 }
 
+.btn--whatsapp {
+  background: #25D366;
+  color: white;
+  border: 1px solid #25D366;
+}
+
+.btn--whatsapp:hover {
+  background: #128C7E;
+  border-color: #128C7E;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
 /* Badge */
 .badge {
   display: inline-block;
