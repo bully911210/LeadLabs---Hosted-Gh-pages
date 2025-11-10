@@ -731,13 +731,20 @@ input, textarea, select {
   height: 46px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0) invert(1);
   opacity: 0.75;
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .carousel-track img:hover {
   opacity: 1;
+}
+
+/* Make only SIG Solutions and Acorn Brokers white */
+.carousel-track img.logo-white {
+  filter: grayscale(100%) brightness(0) invert(1);
+}
+
+.carousel-track img.logo-white:hover {
   filter: grayscale(0%) brightness(1) invert(1);
 }
 
@@ -762,5 +769,112 @@ input, textarea, select {
   
   .carousel-track img {
     height: 36px;
+  }
+}
+
+/* Infinite Scrolling Card Carousel with Fade-out Sides */
+.carousel {
+  position: relative;
+  max-width: calc(var(--max-width) * 1.5); /* 50% larger than base */
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--spacing-4) 0;
+}
+
+/* Fade effect on left and right edges using gradients */
+.carousel::before,
+.carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+
+.carousel-inner {
+  display: flex;
+  will-change: transform; /* GPU-friendly */
+  animation: scrolling 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.carousel:hover .carousel-inner {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-shrink: 0;
+  padding: 0 calc(var(--spacing-3) / 2);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--spacing-4);
+  min-width: 280px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-1);
+}
+
+.card__text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Smooth horizontal scrolling animation */
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive adjustments for infinite carousel */
+@media (max-width: 768px) {
+  .carousel {
+    max-width: 100%;
+  }
+  
+  .carousel::before,
+  .carousel::after {
+    width: 50px;
+  }
+  
+  .card {
+    min-width: 220px;
+  }
+  
+  .group {
+    gap: var(--spacing-2);
   }
 }
