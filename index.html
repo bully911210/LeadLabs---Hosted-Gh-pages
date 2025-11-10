@@ -137,6 +137,15 @@
             }
         }
         
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+            }
+        }
+        
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
         }
@@ -174,6 +183,10 @@
         .hover-lift:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(123, 97, 255, 0.2);
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
         }
         
         /* Sticky header */
@@ -547,56 +560,140 @@
                 You're Here Because...
             </h2>
             
-            <!-- Pain points grid -->
-            <div class="grid md:grid-cols-3 gap-8 mt-16 mb-12">
+            <!-- Pain points grid - Updated to 5 columns on desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mt-16 mb-12">
                 <!-- Pain point 1 -->
-                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center hover-lift">
-                    <div class="flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-xl mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-violet-primary/20">
+                    <div class="flex items-center justify-center w-20 h-20 bg-red-500/10 rounded-xl mb-5 mx-auto">
+                        <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold text-charcoal dark:text-white mb-3">
+                    <h3 class="text-lg font-display font-bold text-charcoal dark:text-white mb-2 leading-tight">
                         Your team is copying leads manually.
                     </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Hours wasted on data entry instead of closing deals.
+                    </p>
                 </div>
                 
                 <!-- Pain point 2 -->
-                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center hover-lift" style="animation-delay: 0.1s;">
-                    <div class="flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-xl mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-violet-primary/20" style="animation-delay: 0.1s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-red-500/10 rounded-xl mb-5 mx-auto">
+                        <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold text-charcoal dark:text-white mb-3">
+                    <h3 class="text-lg font-display font-bold text-charcoal dark:text-white mb-2 leading-tight">
                         You spend on ads but can't trace real profit.
                     </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Campaign reports show clicks, not revenue impact.
+                    </p>
                 </div>
                 
                 <!-- Pain point 3 -->
-                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center hover-lift" style="animation-delay: 0.2s;">
-                    <div class="flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-xl mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-violet-primary/20" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-red-500/10 rounded-xl mb-5 mx-auto">
+                        <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold text-charcoal dark:text-white mb-3">
+                    <h3 class="text-lg font-display font-bold text-charcoal dark:text-white mb-2 leading-tight">
                         Your agency reports vanity metrics, not growth.
                     </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Impressions and engagement don't pay the bills.
+                    </p>
+                </div>
+
+                <!-- Pain point 4 - NEW -->
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-violet-primary/20" style="animation-delay: 0.3s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-red-500/10 rounded-xl mb-5 mx-auto">
+                        <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-charcoal dark:text-white mb-2 leading-tight">
+                        Attribution is broken or nonexistent.
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        You can't connect ad spend to closed revenue.
+                    </p>
+                </div>
+
+                <!-- Pain point 5 - NEW -->
+                <div class="animate-on-scroll bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-violet-primary/20" style="animation-delay: 0.4s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-red-500/10 rounded-xl mb-5 mx-auto">
+                        <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-charcoal dark:text-white mb-2 leading-tight">
+                        Scaling feels like gambling.
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        No reliable data to predict return before spending more.
+                    </p>
                 </div>
             </div>
             
-            <!-- Solution statement -->
-            <div class="max-w-3xl mx-auto text-center animate-on-scroll">
-                <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                    Ads are easy. Profit tracking isn't. I build systems that connect every click to a sale — and show you exactly what's working.
+            <!-- Bridge sentence -->
+            <div class="max-w-3xl mx-auto text-center animate-on-scroll mb-8">
+                <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+                    These problems persist because ads are easy. Profit tracking isn't.<br>
+                    I build systems that connect every click to a sale, and show you exactly what's working.
                 </p>
-                <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-lg hover:-translate-y-0.5">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            </div>
+
+            <!-- CTA with enhanced styling -->
+            <div class="max-w-3xl mx-auto text-center animate-on-scroll mb-12">
+                <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="pulse-glow inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-cta-glow-hover shadow-cta-glow relative overflow-hidden group">
+                    <span class="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                    <svg class="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
-                    Book Your System Audit
+                    <span class="relative z-10">Book Your System Audit</span>
                 </a>
+            </div>
+
+            <!-- Animated Proof Metrics -->
+            <div class="max-w-4xl mx-auto animate-on-scroll">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Metric 1: Revenue Tracked -->
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-violet-primary/20 text-center">
+                        <div class="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2 font-semibold">
+                            Revenue Tracked
+                        </div>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-3xl font-bold text-violet-primary">R</span>
+                            <span class="metric-counter text-4xl font-bold text-charcoal dark:text-white ml-1" data-target="12.4">0.0</span>
+                            <span class="text-3xl font-bold text-violet-primary ml-1">M+</span>
+                        </div>
+                    </div>
+
+                    <!-- Metric 2: Average ROAS -->
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-violet-primary/20 text-center">
+                        <div class="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2 font-semibold">
+                            Average ROAS
+                        </div>
+                        <div class="flex items-baseline justify-center">
+                            <span class="metric-counter text-4xl font-bold text-charcoal dark:text-white" data-target="5.4">0.0</span>
+                            <span class="text-3xl font-bold text-violet-primary ml-1">x</span>
+                        </div>
+                    </div>
+
+                    <!-- Metric 3: Systems Deployed -->
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-violet-primary/20 text-center">
+                        <div class="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2 font-semibold">
+                            Systems Deployed
+                        </div>
+                        <div class="flex items-baseline justify-center">
+                            <span class="metric-counter text-4xl font-bold text-charcoal dark:text-white" data-target="47">0</span>
+                            <span class="text-3xl font-bold text-violet-primary ml-1">+</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -837,10 +934,10 @@
             </h2>
             <blockquote class="animate-on-scroll text-2xl sm:text-3xl font-serif text-gray-200 italic leading-relaxed text-center">
                 "I don't sell traffic. I sell clarity.<br><br>
-                When you can see exactly where your profit comes from, scaling stops feeling risky — and starts feeling inevitable."
+                When you can see exactly where your profit comes from, scaling stops feeling risky and starts feeling inevitable."
             </blockquote>
             <div class="text-center mt-8">
-                <p class="text-violet-primary font-semibold text-lg">— Franz Badenhorst</p>
+                <p class="text-violet-primary font-semibold text-lg">Franz Badenhorst</p>
                 <p class="text-gray-400 text-sm mt-2">Strategic Revenue Partner for Meta Advertising</p>
             </div>
         </div>
@@ -851,7 +948,7 @@
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-transparent"></div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl sm:text-5xl font-display font-bold text-white mb-6 animate-on-scroll">
-                If you're ready to stop bleeding ad budget and start tracking measurable profit — let's talk.
+                If you're ready to stop bleeding ad budget and start tracking measurable profit, let's talk.
             </h2>
             <p class="text-xl text-gray-200 mb-12 animate-on-scroll max-w-2xl mx-auto">
                 No pitches. No fluff. Just engineered systems that make revenue visible.
@@ -894,7 +991,7 @@
                     <span>© 2025 LeadLabs™</span>
                 </div>
                 <p class="text-sm text-gray-400">
-                    Built by Franz Badenhorst — Real Ads. Real Metrics. Real Revenue.
+                    Built by Franz Badenhorst. Real Ads. Real Metrics. Real Revenue.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm pt-4">
                     <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
@@ -944,7 +1041,7 @@
         <div class="modal-content">
             <div class="p-6 border-b border-gray-200 dark:border-gray-700">
                 <div class="flex justify-between items-center">
-                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">DefendSure — Insurance</h3>
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">DefendSure: Insurance</h3>
                     <button onclick="closeModal('caseStudy1')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-3xl leading-none">
                         &times;
                     </button>
@@ -974,7 +1071,7 @@
         <div class="modal-content">
             <div class="p-6 border-b border-gray-200 dark:border-gray-700">
                 <div class="flex justify-between items-center">
-                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">AgriFront / Frontline South — Nonprofit</h3>
+                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white">AgriFront / Frontline South: Nonprofit</h3>
                     <button onclick="closeModal('caseStudy2')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-3xl leading-none">
                         &times;
                     </button>
