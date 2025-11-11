@@ -1,268 +1,281 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Done-For-You Advertising Systems | Franz Badenhorst - LeadLabs™</title>
-    <meta name="description" content="We build and manage end-to-end Meta campaigns that track every sale. Predictable ROI for agencies, founders, and sales teams.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://leadlabs.co.za/dfy">
-    <meta property="og:title" content="Done-For-You Advertising Systems | Franz Badenhorst - LeadLabs™">
-    <meta property="og:description" content="We build and manage end-to-end Meta campaigns that track every sale.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        violet: {
-                            primary: '#7B61FF',
-                            dark: '#6B51E5',
-                        },
-                        charcoal: '#121212',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* Global Layout */
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        /* Typography */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        body {
-            font-size: 16px;
-            color: #333;
-        }
-        
-        /* Button Consistency */
-        .button-primary {
-            background-color: #5b4eff !important;
-            color: #fff !important;
-            padding: 14px 28px !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            transition: background 0.2s ease !important;
-        }
-        
-        .button-primary:hover {
-            background-color: #4636e6 !important;
-        }
-        
-        @media (max-width: 768px) {
-            h1, h2 {
-                font-size: 1.6rem;
-            }
-            .button-primary {
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Done-For-You Advertising Systems | Franz Badenhorst - LeadLabs</title>
+  <meta name="description" content="We build and manage end-to-end Meta campaigns that track every sale. Predictable ROI for agencies, founders, and sales teams.">
+  <meta name="keywords" content="Done-for-You advertising, Meta ads management, CAPI implementation, full-service Meta advertising, Franz Badenhorst, LeadLabs">
+  <meta name="author" content="Franz Badenhorst">
+  <meta name="geo.region" content="ZA">
+  <meta name="geo.placename" content="South Africa">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Inter font with system fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leadlabs.co.za/dfy.html">
+  <meta property="og:title" content="Done-For-You Advertising Systems | Franz Badenhorst">
+  <meta property="og:description" content="We build and manage end-to-end Meta campaigns that track every sale. Predictable ROI without the guesswork.">
+  <meta property="og:locale" content="en_ZA">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Done-For-You Advertising Systems | Franz Badenhorst">
+  <meta name="twitter:description" content="End-to-end Meta campaign management with full attribution and verified ROI.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Critical CSS inline -->
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --surface: #121316;
+      --text: #f6f7fb;
+      --muted: #8b8f99;
+      --accent: #7c4dff;
+      --border: rgba(255, 255, 255, 0.08);
+      --ok: #1fd285;
+      --font-base: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --spacing-2: 16px;
+      --spacing-4: 32px;
+      --spacing-6: 48px;
+      --spacing-8: 64px;
+      --max-width: 1200px;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: var(--font-base);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+  </style>
+  
+  <!-- Main CSS (deferred) -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- JSON-LD Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Done-For-You Meta Advertising Management",
+    "provider": {
+      "@type": "Person",
+      "name": "Franz Badenhorst"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "South Africa"
+    },
+    "description": "Complete Meta advertising campaign setup and management with full attribution tracking. End-to-end service from CAPI implementation to conversion optimization.",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "ZAR"
+      }
+    }
+  }
+  </script>
 </head>
-<body class="antialiased bg-white dark:bg-charcoal transition-colors duration-300">
-    
-    <!-- STICKY HEADER -->
-    <header class="sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-charcoal/90 border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center">
-                        <img src="https://i.ibb.co/Kp4zs0W9/upscalemedia-transformed-2.png" alt="LeadLabs™" class="h-10 w-auto" />
-                    </a>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
-                </div>
+<body>
+  
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="LeadLabs home">LeadLabs™</a>
+      <div class="nav__menu">
+        <a href="/about.html" class="nav__link">About</a>
+        <a href="/case-studies/" class="nav__link">Case Studies</a>
+        <a href="/whatsapp-automation.html" class="nav__link">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero__title">Done-For-You Advertising Systems</h1>
+      <p class="hero__subtitle">We build and manage end-to-end Meta campaigns that track every sale. Predictable ROI without the guesswork.</p>
+      <div class="hero__actions">
+        <a href="https://wa.me/27621779799?text=I%20want%20to%20book%20my%20DFY%20System%20Audit" class="btn btn--primary" aria-label="Book Your System Audit">Book Your System Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why This Exists -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <h2 class="section__title">Why This Exists</h2>
+      <p style="font-size: 18px; color: var(--text); line-height: 1.7; text-align: center;">
+        Most Meta campaigns fail because they're missing the glue between ad clicks and revenue. We build the complete system—campaigns, tracking, automation, and attribution.
+      </p>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section" style="background: var(--surface);">
+    <div class="container">
+      <h2 class="section__title">What's Included</h2>
+      <div style="max-width: 700px; margin: 0 auto;">
+        <ul style="list-style: none; padding: 0;">
+          <li style="padding: var(--spacing-2); border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: var(--spacing-2);">
+            <svg width="24" height="24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <strong style="color: var(--text); font-weight: 600;">Complete Campaign Setup</strong>
+              <div style="color: var(--muted); font-size: 15px; margin-top: 4px;">Full Meta Ads account structure, pixel configuration, and conversion API implementation from the ground up</div>
             </div>
-        </div>
-    </header>
-    
-    <!-- HERO SECTION -->
-    <section class="relative overflow-hidden px-8 md:px-20 py-24 bg-gradient-to-br from-[#0B0B1A] to-[#1C114F] min-h-[70vh] flex items-center">
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Done-For-You Advertising Systems
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                We build and manage end-to-end Meta campaigns that track every sale. Predictable ROI without the guesswork.
-            </p>
-            <p class="text-lg text-gray-300 mb-10 italic">
-                For agencies, founders, and sales teams who want predictable ROI.
-            </p>
-            <a href="https://wa.me/27621779799" 
-               target="_blank"
-               rel="noopener noreferrer"
-               class="button-primary inline-flex items-center gap-3 px-10 py-5 text-white text-lg font-bold rounded-xl transition-all hover:scale-105 hover:shadow-2xl">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                Book System Audit
-            </a>
-        </div>
-    </section>
-    
-    <!-- WHAT YOU GET SECTION -->
-    <section class="py-24 bg-white dark:bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-charcoal dark:text-white mb-16">
-                What's Included
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Feature 1 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Complete Campaign Setup
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Full Meta Ads account structure, pixel configuration, and conversion API implementation. We build it from the ground up.
-                    </p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Automation Integration
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        WhatsApp automation, CRM sync, and lead qualification flows. Every lead tracked from click to close.
-                    </p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Real-Time Dashboards
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Custom reporting that shows ad spend, leads, conversions, and actual revenue in one place. Full transparency.
-                    </p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700">
-                    <div class="flex items-center justify-center w-16 h-16 bg-violet-primary/10 rounded-xl mb-6">
-                        <svg class="w-8 h-8 text-violet-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-charcoal dark:text-white mb-4">
-                        Ongoing Management
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        We monitor, optimize, and scale your campaigns daily. You focus on delivery, we handle everything else.
-                    </p>
-                </div>
+          </li>
+          <li style="padding: var(--spacing-2); border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: var(--spacing-2);">
+            <svg width="24" height="24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <strong style="color: var(--text); font-weight: 600;">Automation Integration</strong>
+              <div style="color: var(--muted); font-size: 15px; margin-top: 4px;">WhatsApp automation, CRM sync, and lead qualification flows—every lead tracked from click to close</div>
             </div>
-        </div>
-    </section>
-    
-    <!-- WHO IT'S FOR SECTION -->
-    <section class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-charcoal dark:to-black">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl sm:text-5xl font-display font-bold text-charcoal dark:text-white mb-8">
-                Built For Teams That Want Results, Not Reports
-            </h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-12">
-                Perfect for agencies, founders, and sales teams who need campaigns that track revenue — not just clicks and impressions.
-            </p>
-            <a href="https://wa.me/27621779799" 
-               target="_blank"
-               rel="noopener noreferrer"
-               class="button-primary inline-flex items-center gap-3 px-10 py-5 text-white text-lg font-bold rounded-xl transition-all hover:scale-105 hover:shadow-2xl">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                Book System Audit
-            </a>
-            <p class="text-sm text-gray-400 mt-6">
-                WhatsApp: <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="hover:text-violet-primary transition-colors">+27 62 177 9799</a> | Email: <a href="mailto:franz@sigsolutions.co.za" class="hover:text-violet-primary transition-colors">franz@sigsolutions.co.za</a>
-            </p>
-        </div>
-    </section>
-    
-    <!-- FOOTER -->
-    <footer class="bg-charcoal border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="text-center space-y-4">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-300 text-sm">
-                    <span>© 2025 LeadLabs™</span>
-                </div>
-                <p class="text-sm text-gray-400">
-                    Built by Franz Badenhorst. Real ads. Real metrics. Real revenue.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm pt-4">
-                    <a href="https://wa.me/27621779799" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
-                        WhatsApp: +27 62 177 9799
-                    </a>
-                    <span class="hidden sm:inline text-gray-700">|</span>
-                    <a href="mailto:franz@sigsolutions.co.za" class="text-violet-primary hover:text-violet-dark transition-colors">
-                        franz@sigsolutions.co.za
-                    </a>
-                    <span class="hidden sm:inline text-gray-700">|</span>
-                    <a href="https://leadlabs.co.za" target="_blank" rel="noopener noreferrer" class="text-violet-primary hover:text-violet-dark transition-colors">
-                        leadlabs.co.za
-                    </a>
-                </div>
-                <div class="flex items-center justify-center gap-4 text-sm pt-2">
-                    <a href="/privacy.html" class="text-gray-500 hover:text-violet-primary transition-colors">Privacy Policy</a>
-                    <span class="text-gray-700">|</span>
-                    <a href="/terms.html" class="text-gray-500 hover:text-violet-primary transition-colors">Terms</a>
-                </div>
+          </li>
+          <li style="padding: var(--spacing-2); border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: var(--spacing-2);">
+            <svg width="24" height="24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <strong style="color: var(--text); font-weight: 600;">Real-Time Dashboards</strong>
+              <div style="color: var(--muted); font-size: 15px; margin-top: 4px;">Custom reporting showing ad spend, leads, conversions, and actual revenue in one place with full transparency</div>
             </div>
+          </li>
+          <li style="padding: var(--spacing-2); border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: var(--spacing-2);">
+            <svg width="24" height="24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <strong style="color: var(--text); font-weight: 600;">Ongoing Optimization</strong>
+              <div style="color: var(--muted); font-size: 15px; margin-top: 4px;">Continuous campaign refinement based on live performance data and verified conversions</div>
+            </div>
+          </li>
+          <li style="padding: var(--spacing-2); display: flex; align-items: flex-start; gap: var(--spacing-2);">
+            <svg width="24" height="24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <strong style="color: var(--text); font-weight: 600;">Full Attribution Tracking</strong>
+              <div style="color: var(--muted); font-size: 15px; margin-top: 4px;">Every dollar spent tied directly to revenue generated—no vanity metrics, just verified ROI</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Who This Is For</h2>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3 class="card__title">Agencies</h3>
+          <p class="card__text">You need campaigns that deliver measurable ROI for clients. We handle the technical setup so you can focus on strategy.</p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Founders</h3>
+          <p class="card__text">You're scaling but don't have time to become a Meta ads expert. We build the system while you focus on the business.</p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Sales Teams</h3>
+          <p class="card__text">You need a steady flow of qualified leads with full visibility into what's working. We deliver both.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" style="background: var(--surface);">
+    <div class="container">
+      <h2 class="section__title">How It Works</h2>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="step">
+          <div class="step__number">Step 1.</div>
+          <h3 class="step__title">System Audit</h3>
+          <p class="step__text">We analyze your current setup, identify gaps, and map out the complete attribution system you need.</p>
         </div>
-    </footer>
-    
+        <div class="step">
+          <div class="step__number">Step 2.</div>
+          <h3 class="step__title">Build & Integrate</h3>
+          <p class="step__text">Complete campaign structure, CAPI implementation, automation flows, and revenue tracking—built from scratch or retrofitted.</p>
+        </div>
+        <div class="step">
+          <div class="step__number">Step 3.</div>
+          <h3 class="step__title">Launch & Optimize</h3>
+          <p class="step__text">Campaigns go live with full tracking. We monitor, optimize, and scale based on verified conversion data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Strip -->
+  <section class="trust">
+    <div class="container">
+      <div class="trust__label">Trusted by brands who care about verified results</div>
+      <div class="trust__logos">
+        <span class="trust__logo">DefendSure</span>
+        <span class="trust__logo">AgriFront</span>
+        <span class="trust__logo">StadKlank</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container" style="text-align: center; max-width: 700px;">
+      <h2 class="section__title">Ready to Build Your System?</h2>
+      <p style="font-size: 18px; color: var(--muted); margin-bottom: var(--spacing-4);">
+        Book a system audit. We'll review your current setup and show you exactly what's missing.
+      </p>
+      <a href="https://wa.me/27621779799?text=I%20want%20to%20book%20my%20DFY%20System%20Audit" class="btn btn--primary">Book Your System Audit</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">Built by Franz Badenhorst. Real ads. Real metrics. Real revenue.</p>
+      <div class="footer__links">
+        <a href="/privacy.html" class="footer__link">Privacy</a>
+        <span style="color: var(--muted);">·</span>
+        <a href="/terms.html" class="footer__link">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JS (deferred) -->
+  <script src="/assets/js/main.js" defer></script>
+
 </body>
 </html>
