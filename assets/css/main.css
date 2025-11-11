@@ -675,14 +675,16 @@ input, textarea, select {
   font-size: 15px;
 }
 
-/* Accessibility */
+/* Remove motion */
+* { 
+  scroll-behavior: auto; 
+}
+
+/* Accessibility - Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
@@ -749,42 +751,60 @@ input, textarea, select {
   }
 }
 
-/* Client Carousel */
-.client-carousel {
-  padding: var(--spacing-6) 0 var(--spacing-4);
+/* Glass utilities */
+.glass {
+  background: rgba(18, 19, 22, 0.45);
+  backdrop-filter: saturate(160%) blur(16px);
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
+}
+
+.glass--soft {
+  background: rgba(18, 19, 22, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-border {
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 10px 30px rgba(0,0,0,0.25);
+  border-radius: 16px;
+}
+
+.glass-card {
+  background: rgba(18, 19, 22, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* Fallback when no backdrop support */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .glass, .glass--soft, .glass-card { 
+    background: rgba(18,19,22,0.85); 
+  }
+}
+
+/* Apply glass to key areas */
+.nav { 
+  background: rgba(11,11,12,0.55); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px); 
+}
+
+.stats .stat, .proof-card, .step, .cta-strip .container { 
+  border-radius: 16px; 
+}
+
+/* Client Logos - Static Grid */
+.client-logos {
+  padding: var(--spacing-6) var(--spacing-2) var(--spacing-4);
   text-align: center;
   background: var(--bg);
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Fade effect on left and right edges */
-.client-carousel::before,
-.client-carousel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 150px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.client-carousel::before {
-  left: 0;
-  background: linear-gradient(to right, var(--bg), transparent);
-}
-
-.client-carousel::after {
-  right: 0;
-  background: linear-gradient(to left, var(--bg), transparent);
-}
-
-.client-carousel .kicker {
+.client-logos .kicker {
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
@@ -793,173 +813,57 @@ input, textarea, select {
   margin-bottom: var(--spacing-4);
 }
 
-.client-carousel .carousel-track {
-  display: flex;
+.logo-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 28px;
   align-items: center;
-  gap: 48px;
-  width: max-content;
-  position: relative;
-  transition: transform 400ms ease;
-  will-change: transform;
-  transform: translateX(0);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
 }
 
-.client-carousel .carousel-track img {
-  height: 46px;
-  width: auto;
-  max-width: 180px;
-  flex: 0 0 auto;
-  object-fit: contain;
+.logo-grid img { 
+  width: 100%; 
+  height: auto; 
+  filter: contrast(1.1);
   opacity: 0.75;
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-.client-carousel .carousel-track img:hover {
+.logo-grid img:hover {
   opacity: 1;
 }
 
-/* Make only SIG Solutions and Acorn Brokers white */
-.client-carousel .carousel-track img.logo-white {
-  filter: grayscale(100%) brightness(0) invert(1);
-}
-
-.client-carousel .carousel-track img.logo-white:hover {
-  filter: grayscale(0%) brightness(1) invert(1);
-}
-
-/* Mobile adjustments for client carousel */
-@media (max-width: 768px) {
-  .client-carousel {
-    padding: var(--spacing-4) 0 var(--spacing-3);
-  }
-  
-  .client-carousel::before,
-  .client-carousel::after {
-    width: 80px;
-  }
-  
-  .client-carousel .carousel-track {
-    gap: 24px;
-  }
-  
-  .client-carousel .carousel-track img {
-    height: 36px;
-    max-width: 120px;
-  }
-}
-
-/* Infinite Scrolling Card Carousel with Fade-out Sides */
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  padding: var(--spacing-4) 0;
-}
-
-.carousel-item {
-  flex: 0 0 auto;
-  width: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-/* Fade effect on left and right edges using gradients */
-.carousel::before,
-.carousel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 150px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.carousel::before {
-  left: 0;
-  background: linear-gradient(to right, var(--surface), transparent);
-}
-
-.carousel::after {
-  right: 0;
-  background: linear-gradient(to left, var(--surface), transparent);
-}
-
-.carousel-inner {
-  display: flex;
-  will-change: transform;
-  transition: transform 400ms ease;
-  transform: translateX(0);
-}
-
-.group {
-  display: flex;
+/* Static 3-up cards */
+.cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 24px;
-  flex-shrink: 0;
-  padding: 0 12px;
+  margin-top: var(--spacing-4);
 }
 
-.card {
+.surface {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: var(--spacing-4);
-  width: 280px;
-  flex: 0 0 auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.card__title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: var(--spacing-1);
-}
-
-.card__text {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* Responsive adjustments for infinite carousel */
+/* Mobile adjustments for logo grid and cards */
 @media (max-width: 768px) {
-  .carousel {
-    max-width: 100%;
+  .logo-grid {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    gap: 20px;
   }
   
-  .carousel::before,
-  .carousel::after {
-    width: 50px;
+  .cards-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  
-  .carousel-item {
-    width: 100vw;
-  }
-  
-  .card {
-    width: 220px;
-  }
-  
-  .group {
+}
+
+@media (max-width: 480px) {
+  .logo-grid {
+    grid-template-columns: repeat(2, minmax(80px, 1fr));
     gap: 16px;
-    padding: 0 8px;
   }
 }
