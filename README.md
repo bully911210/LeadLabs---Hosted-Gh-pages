@@ -35,17 +35,32 @@ The built files will be in the `dist` directory.
 
 ## Deployment
 
-The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch using GitHub Actions.
 
-The deployment workflow:
-1. Builds the React application using Vite
-2. Deploys the `dist` folder to GitHub Pages
-3. Custom domain: [leadlabs.co.za](https://leadlabs.co.za)
+### Automatic Deployment
 
-### Manual Deployment
+The deployment workflow (`.github/workflows/deploy.yml`):
+1. Installs dependencies with `npm ci`
+2. Builds the React application using `npm run build`
+3. Uploads the `dist` folder as a GitHub Pages artifact
+4. Deploys to GitHub Pages with proper MIME type configuration
+5. Custom domain: [leadlabs.co.za](https://leadlabs.co.za)
+
+### GitHub Pages Setup
+
+To ensure the workflow functions correctly, verify in your repository settings:
+- Go to **Settings** → **Pages**
+- Under **Source**, select **GitHub Actions**
+- The custom domain should be set to `leadlabs.co.za`
+
+### Local Preview
 
 To preview the production build locally:
 
 ```bash
 npm run preview
 ```
+
+### MIME Type Handling
+
+The deployment uses GitHub Actions with `actions/deploy-pages@v4`, which ensures JavaScript module files are served with the correct MIME type (`application/javascript` or `text/javascript`) instead of `application/octet-stream`. This prevents the "Failed to load module script" error.
