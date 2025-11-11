@@ -79,6 +79,12 @@
           totalWidth += groups[i].offsetWidth;
         }
         
+        // Calculate center offset to keep carousel centered
+        const carouselContainer = document.querySelector('.carousel');
+        const containerWidth = carouselContainer ? carouselContainer.offsetWidth : window.innerWidth;
+        const firstGroupWidth = groups[0].offsetWidth;
+        const centerOffset = (containerWidth - firstGroupWidth) / 2;
+        
         // Smooth continuous animation (slower for cards)
         cardOffset -= 0.3;
         
@@ -87,7 +93,7 @@
           cardOffset = 0;
         }
         
-        cardCarousel.style.transform = `translateX(${cardOffset}px)`;
+        cardCarousel.style.transform = `translateX(${centerOffset + cardOffset}px)`;
         cardAnimationId = requestAnimationFrame(animateCardCarousel);
       }
       
@@ -117,7 +123,6 @@
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
           cardOffset = 0;
-          cardCarousel.style.transform = 'translateX(0)';
           // Restart animation after resize
           if (cardAnimationId) {
             cancelAnimationFrame(cardAnimationId);
