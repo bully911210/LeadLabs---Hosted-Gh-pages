@@ -733,11 +733,6 @@ input, textarea, select {
   h1, h2 {
     font-size: 1.6rem;
   }
-  
-  .carousel-item {
-    flex: 0 0 80%;
-    height: auto;
-  }
 }
 
 @media (max-width: 480px) {
