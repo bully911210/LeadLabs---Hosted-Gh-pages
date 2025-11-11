@@ -26,6 +26,11 @@ function htmlCopyPlugin(): Plugin {
   return {
     name: 'html-copy-plugin',
     closeBundle() {
+      // Create .nojekyll file to prevent GitHub Pages from using Jekyll
+      const nojekyllPath = path.resolve(__dirname, 'dist', '.nojekyll');
+      fs.writeFileSync(nojekyllPath, '');
+      console.log('✓ Created .nojekyll file for GitHub Pages');
+      
       // Copy all HTML files to dist
       const htmlFiles = [
         'audit.html',
