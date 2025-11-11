@@ -21,7 +21,7 @@ function sitemapDatePlugin(): Plugin {
   };
 }
 
-// Plugin to copy HTML files to dist
+// Plugin to copy HTML files and assets to dist
 function htmlCopyPlugin(): Plugin {
   return {
     name: 'html-copy-plugin',
@@ -62,6 +62,44 @@ function htmlCopyPlugin(): Plugin {
           fs.copyFileSync(src, dest);
           console.log(`✓ Copied case-studies/${file} to dist`);
         });
+      }
+      
+      // Copy assets directory
+      const assetsDir = path.resolve(__dirname, 'assets');
+      const distAssetsDir = path.resolve(__dirname, 'dist', 'assets');
+      
+      if (fs.existsSync(assetsDir)) {
+        if (!fs.existsSync(distAssetsDir)) {
+          fs.mkdirSync(distAssetsDir, { recursive: true });
+        }
+        
+        // Copy CSS
+        const cssDir = path.join(assetsDir, 'css');
+        const distCssDir = path.join(distAssetsDir, 'css');
+        if (fs.existsSync(cssDir)) {
+          if (!fs.existsSync(distCssDir)) {
+            fs.mkdirSync(distCssDir, { recursive: true });
+          }
+          const cssFiles = fs.readdirSync(cssDir);
+          cssFiles.forEach(file => {
+            fs.copyFileSync(path.join(cssDir, file), path.join(distCssDir, file));
+          });
+          console.log(`✓ Copied assets/css to dist`);
+        }
+        
+        // Copy JS
+        const jsDir = path.join(assetsDir, 'js');
+        const distJsDir = path.join(distAssetsDir, 'js');
+        if (fs.existsSync(jsDir)) {
+          if (!fs.existsSync(distJsDir)) {
+            fs.mkdirSync(distJsDir, { recursive: true });
+          }
+          const jsFiles = fs.readdirSync(jsDir);
+          jsFiles.forEach(file => {
+            fs.copyFileSync(path.join(jsDir, file), path.join(distJsDir, file));
+          });
+          console.log(`✓ Copied assets/js to dist`);
+        }
       }
     }
   };
